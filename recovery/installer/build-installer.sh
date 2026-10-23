@@ -3,7 +3,10 @@ set -euo pipefail
 exec > >(tee /out/build.log) 2>&1
 # Trust only the read-only checkout explicitly mounted by the build runner.
 # Its host UID differs from the root UID in the capability-restricted container.
-git -c safe.directory=/source.git clone --no-local --no-checkout /source.git /work/checkout
+# Set this inside the disposable container so the upload-pack subprocess sees
+# the same single-path exception. No host Git configuration is mounted.
+git config --global --add safe.directory /source.git
+git clone --no-local --no-checkout /source.git /work/checkout
 cd /work/checkout
 git -c core.hooksPath=/dev/null checkout --detach b47add65d32e232b939d4915cca0b5a9ddafc48d
 git apply --check /recipe/recovery-installer.patch
