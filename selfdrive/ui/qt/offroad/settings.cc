@@ -18,7 +18,7 @@
 
 #include "common/params.h"
 
-JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent) {
+BenPilotTogglesPanel::BenPilotTogglesPanel(QWidget *parent) : ListWidget(parent) {
   QList<AbstractControl*> toggles;
 
   // slowInCurves
@@ -40,7 +40,7 @@ JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent)
   };
   addItem(new ParamControl("jvePilot.settings.slowInCurves",
                                   "Slow in Curves",
-                                  "jvePilot will slow in curves so that you don't have to.",
+                                  "benPilot will slow in curves so that you don't have to.",
                                   "../assets/jvepilot/settings/icon_slow_in_curves.png",
                                   this,
                                   &slowInCurvesConfigs));
@@ -67,7 +67,7 @@ JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent)
   };
   addItem(new ParamControl("jvePilot.settings.autoFollow",
                            "Start with Auto Follow Enabled",
-                           "When enabled, jvePilot will enable Auto Follow on the start of every drive.",
+                           "When enabled, benPilot will enable Auto Follow on the start of every drive.",
                            "../assets/jvepilot/settings/icon_auto_follow.png",
                            this,
                            &autoFollowConfigs));
@@ -75,7 +75,7 @@ JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent)
   // Always One Lateral Control
   addItem(new ParamControl("jvePilot.settings.steer.aolc",
                            "Always On Lateral Control",
-                           "When enabled and ACC is ready, jvePilot will steer even if ACC isn't active",
+                           "When enabled and ACC is ready, benPilot will steer even if ACC isn't active",
                            "../assets/img_chffr_wheel.png",
                            this));
 
@@ -105,7 +105,7 @@ JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent)
   // audioAlertOnSteeringLoss
   addItem(new ParamControl("jvePilot.settings.audioAlertOnSteeringLoss",
                            "Audio Alert on Steering Loss",
-                           "When enabled, jvePilot will play an alert when speed it too low to steer.",
+                           "When enabled, benPilot will play an alert when speed it too low to steer.",
                            "../assets/jvepilot/settings/alert_steer_loss.png",
                            this));
 
@@ -162,9 +162,9 @@ JvePilotTogglesPanel::JvePilotTogglesPanel(QWidget *parent) : ListWidget(parent)
         "\nNOTE: This is not how far the CAMERA is off-center, but how far the MOUNT/DEVICE is off-center."
     }
   };
-  addItem(new LabelControl("jvePilot Control Settings",
+  addItem(new LabelControl("benPilot Control Settings",
                                   "",
-                                  "Use these settings to tune some of jvePilot's control settings.",
+                                  "Use these settings to tune some of benPilot's control settings.",
                                   this,
                                   "../assets/jvepilot/settings/icon_misc.png",
                                   &miscConfigs));
@@ -225,8 +225,8 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
   std::vector<std::tuple<QString, QString, QString, QString>> toggle_defs{
     {
       "OpenpilotEnabledToggle",
-      tr("Enable openpilot"),
-      tr("Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off."),
+      tr("Enable benPilot"),
+      tr("Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off."),
       "../assets/img_chffr_wheel.png",
     },
     {
@@ -238,7 +238,7 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
     {
       "DisengageOnAccelerator",
       tr("Disengage on Accelerator Pedal"),
-      tr("When enabled, pressing the accelerator pedal will disengage openpilot."),
+      tr("When enabled, pressing the accelerator pedal will disengage benPilot."),
       "../assets/offroad/icon_disengage_on_accelerator.svg",
     },
     {
@@ -264,7 +264,7 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
     {
       "AlwaysOnDM",
       tr("Always-On Driver Monitoring"),
-      tr("Enable driver monitoring even when openpilot is not engaged."),
+      tr("Enable driver monitoring even when benPilot is not engaged."),
       "../assets/offroad/icon_monitoring.png",
     },
     {
@@ -284,8 +284,8 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
 
   std::vector<QString> longi_button_texts{tr("Aggressive"), tr("Standard"), tr("Relaxed")};
   long_personality_setting = new ButtonParamControl("LongitudinalPersonality", tr("Driving Personality"),
-                                          tr("Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. "
-                                             "In relaxed mode openpilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with "
+                                          tr("Standard is recommended. In aggressive mode, benPilot will follow lead cars closer and be more aggressive with the gas and brake. "
+                                             "In relaxed mode benPilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with "
                                              "your steering wheel distance button."),
                                           "../assets/offroad/icon_speed_limit.png",
                                           longi_button_texts);
@@ -340,9 +340,9 @@ void TogglesPanel::updateToggles() {
                                           "%3<br>"
                                           "<h4>%4</h4><br>"
                                           "%5<br>")
-                                  .arg(tr("openpilot defaults to driving in <b>chill mode</b>. Experimental mode enables <b>alpha-level features</b> that aren't ready for chill mode. Experimental features are listed below:"))
+                                  .arg(tr("benPilot defaults to driving in <b>chill mode</b>. Experimental mode enables <b>alpha-level features</b> that aren't ready for chill mode. Experimental features are listed below:"))
                                   .arg(tr("End-to-End Longitudinal Control"))
-                                  .arg(tr("Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would, including stopping for red lights and stop signs. "
+                                  .arg(tr("Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would, including stopping for red lights and stop signs. "
                                           "Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; "
                                           "mistakes should be expected."))
                                   .arg(tr("New Driving Visualization"))
@@ -369,12 +369,12 @@ void TogglesPanel::updateToggles() {
       const QString unavailable = tr("Experimental mode is currently unavailable on this car since the car's stock ACC is used for longitudinal control.");
 
       QString long_desc = unavailable + " " + \
-                          tr("openpilot longitudinal control may come in a future update.");
+                          tr("benPilot longitudinal control may come in a future update.");
       if (true) {
         if (false) {
-          long_desc = unavailable + " " + tr("An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.");
+          long_desc = unavailable + " " + tr("An alpha version of benPilot longitudinal control can be tested, along with Experimental mode, on non-release branches.");
         } else {
-          long_desc = tr("Enable the openpilot longitudinal control (alpha) toggle to allow Experimental mode.");
+          long_desc = tr("Enable the benPilot longitudinal control (alpha) toggle to allow Experimental mode.");
         }
       }
       experimental_mode_toggle->setDescription("<b>" + long_desc + "</b><br><br>" + e2e_description);
@@ -416,7 +416,7 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   });
   addItem(resetCalibBtn);
 
-  auto retrainingBtn = new ButtonControl(tr("Review Training Guide"), tr("REVIEW"), tr("Review the rules, features, and limitations of openpilot"));
+  auto retrainingBtn = new ButtonControl(tr("Review Training Guide"), tr("REVIEW"), tr("Review the rules, features, and limitations of benPilot"));
   connect(retrainingBtn, &ButtonControl::clicked, [=]() {
     if (ConfirmationDialog::confirm(tr("Are you sure you want to review the training guide?"), tr("Review"), this)) {
       emit reviewTrainingGuide();
@@ -486,8 +486,8 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
 
 void DevicePanel::updateCalibDescription() {
   QString desc =
-      tr("openpilot requires the device to be mounted within 4° left or right and "
-         "within 5° up or 9° down. openpilot is continuously calibrating, resetting is rarely required.");
+      tr("benPilot requires the device to be mounted within 4° left or right and "
+         "within 5° up or 9° down. benPilot is continuously calibrating, resetting is rarely required.");
   std::string calib_bytes = params.get("CalibrationParams");
   if (!calib_bytes.empty()) {
     try {
@@ -602,7 +602,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) : QFrame(parent) {
     {tr("Device"), device},
     {tr("Network"), networking},
     {tr("Toggles"), toggles},
-    {tr("jvePilot"), new JvePilotTogglesPanel(this)},
+    {tr("benPilot"), new BenPilotTogglesPanel(this)},
     {tr("Software"), new SoftwarePanel(this)},
     {tr("Firehose"), new FirehosePanel(this)},
     {tr("Developer"), new DeveloperPanel(this)},

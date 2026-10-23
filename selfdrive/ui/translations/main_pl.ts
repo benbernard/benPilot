@@ -163,8 +163,8 @@
         <translation>ZAPOZNAJ SIĘ</translation>
     </message>
     <message>
-        <source>Review the rules, features, and limitations of openpilot</source>
-        <translation>Zapoznaj się z zasadami, funkcjami i ograniczeniami openpilota</translation>
+        <source>Review the rules, features, and limitations of benPilot</source>
+        <translation>Zapoznaj się z zasadami, funkcjami i ograniczeniami benPilota</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
@@ -199,8 +199,8 @@
         <translation>Wyłącz</translation>
     </message>
     <message>
-        <source>openpilot requires the device to be mounted within 4° left or right and within 5° up or 8° down. openpilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>openpilot wymaga, aby urządzenie było zamontowane z maksymalnym odchyłem 4° poziomo, 5° w górę oraz 8° w dół. openpilot jest ciągle kalibrowany, rzadko konieczne jest resetowania urządzenia.</translation>
+        <source>benPilot requires the device to be mounted within 4° left or right and within 5° up or 8° down. benPilot is continuously calibrating, resetting is rarely required.</source>
+        <translation>benPilot wymaga, aby urządzenie było zamontowane z maksymalnym odchyłem 4° poziomo, 5° w górę oraz 8° w dół. benPilot jest ciągle kalibrowany, rzadko konieczne jest resetowania urządzenia.</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -979,12 +979,12 @@ nie zostało ustawione</translation>
 <context>
     <name>TogglesPanel</name>
     <message>
-        <source>Enable openpilot</source>
-        <translation>Włącz openpilota</translation>
+        <source>Enable benPilot</source>
+        <translation>Włącz benPilota</translation>
     </message>
     <message>
-        <source>Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>Użyj openpilota do zachowania bezpiecznego odstępu między pojazdami i do asystowania w utrzymywaniu pasa ruchu. Twoja pełna uwaga jest wymagana przez cały czas korzystania z tej funkcji. Ustawienie to może być wdrożone wyłącznie wtedy, gdy pojazd jest wyłączony.</translation>
+        <source>Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
+        <translation>Użyj benPilota do zachowania bezpiecznego odstępu między pojazdami i do asystowania w utrzymywaniu pasa ruchu. Twoja pełna uwaga jest wymagana przez cały czas korzystania z tej funkcji. Ustawienie to może być wdrożone wyłącznie wtedy, gdy pojazd jest wyłączony.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1015,8 +1015,8 @@ nie zostało ustawione</translation>
         <translation>Odłącz poprzez naciśnięcie gazu</translation>
     </message>
     <message>
-        <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
-        <translation>Po włączeniu, naciśnięcie na pedał gazu odłączy openpilota.</translation>
+        <source>When enabled, pressing the accelerator pedal will disengage benPilot.</source>
+        <translation>Po włączeniu, naciśnięcie na pedał gazu odłączy benPilota.</translation>
     </message>
     <message>
         <source>Show ETA in 24h Format</source>
@@ -1035,31 +1035,31 @@ nie zostało ustawione</translation>
         <translation>Pokaż mapę po lewej stronie kiedy ekran jest podzielony.</translation>
     </message>
     <message>
-        <source>openpilot Longitudinal Control</source>
-        <translation type="vanished">Kontrola wzdłużna openpilota</translation>
+        <source>benPilot Longitudinal Control</source>
+        <translation type="vanished">Kontrola wzdłużna benPilota</translation>
     </message>
     <message>
-        <source>openpilot will disable the car&apos;s radar and will take over control of gas and brakes. Warning: this disables AEB!</source>
-        <translation type="vanished">openpilot wyłączy radar samochodu i przejmie kontrolę nad gazem i hamulcem. Ostrzeżenie: wyłączony zostanie system AEB!</translation>
+        <source>benPilot will disable the car&apos;s radar and will take over control of gas and brakes. Warning: this disables AEB!</source>
+        <translation type="vanished">benPilot wyłączy radar samochodu i przejmie kontrolę nad gazem i hamulcem. Ostrzeżenie: wyłączony zostanie system AEB!</translation>
     </message>
     <message>
         <source>🌮 End-to-end longitudinal (extremely alpha) 🌮</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Experimental openpilot Longitudinal Control</source>
+        <source>Experimental benPilot Longitudinal Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;b&gt;WARNING: openpilot longitudinal control is experimental for this car and will disable AEB.&lt;/b&gt;</source>
+        <source>&lt;b&gt;WARNING: benPilot longitudinal control is experimental for this car and will disable AEB.&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would. Super experimental.</source>
+        <source>Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would. Super experimental.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>openpilot longitudinal control is not currently available for this car.</source>
+        <source>benPilot longitudinal control is not currently available for this car.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

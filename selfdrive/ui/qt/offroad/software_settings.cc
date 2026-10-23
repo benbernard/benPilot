@@ -29,6 +29,9 @@ SoftwarePanel::SoftwarePanel(QWidget* parent) : ListWidget(parent) {
   versionLbl = new LabelControl(tr("Current Version"), "");
   addItem(versionLbl);
 
+  addItem(new LabelControl(tr("Origin"), tr("jvePilot by John Van Etten"),
+                           tr("benPilot is based on jvePilot and comma.ai openpilot.")));
+
   // download update btn
   downloadBtn = new ButtonControl(tr("Download"), tr("CHECK"));
   connect(downloadBtn, &ButtonControl::clicked, [=]() {

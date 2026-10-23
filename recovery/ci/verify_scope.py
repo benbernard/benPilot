@@ -2,10 +2,13 @@
 import os
 from pathlib import Path
 import subprocess
+import sys
 
 BASELINE = 'b47add65d32e232b939d4915cca0b5a9ddafc48d'
 ROOT = Path(__file__).resolve().parents[2]
 INSTALLER_PATHS = ('selfdrive/ui/SConscript', 'selfdrive/ui/installer/installer.cc')
+sys.path.insert(0, str(ROOT / 'recovery/branding'))
+from verify_branding import BRANDING_PATHS, verify as verify_branding
 
 
 def git(*args):
@@ -21,12 +24,14 @@ changed = git('diff', '--name-only', BASELINE, 'HEAD').splitlines()
 has_installer = (ROOT / 'recovery/installer/check_installer_guards.py').is_file()
 unexpected = [p for p in changed if p != 'README.md'
               and not p.startswith(('recovery/', '.github/workflows/'))
-              and not (has_installer and p in INSTALLER_PATHS)]
+              and not (has_installer and p in INSTALLER_PATHS)
+              and p not in BRANDING_PATHS]
 assert not unexpected, f'Changes outside the reviewed recovery/installer scope: {unexpected}'
 readme = (ROOT / 'README.md').read_text()
 assert readme.startswith('# benPilot') and 'jvePilot' in readme and 'John Van Etten' in readme
 assert 'https://github.com/j-vanetten/openpilot' in readme
 assert git('show', f'{BASELINE}:launch_env.sh').find('11.13') >= 0
+verify_branding(ROOT)
 
 if has_installer:
   actual = git('diff', '--binary', BASELINE, 'HEAD', '--', *INSTALLER_PATHS)
@@ -43,4 +48,5 @@ for path in (ROOT / 'recovery').rglob('*.sh'):
 if output := os.environ.get('GITHUB_OUTPUT'):
   with open(output, 'a') as stream:
     stream.write(f'has_installer={str(has_installer).lower()}\n')
-print(f'PASS: {len(changed)} reviewed recovery/installer paths; original driving, safety, models, firmware, OS requirements and licenses unchanged.')
+    stream.write('has_branding=true\n')
+print(f'PASS: {len(changed)} reviewed recovery/installer/branding paths; original control logic, safety, models, firmware, OS requirements and licenses unchanged.')

@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 10
     outputs:
       has_installer: ${{ steps.scope.outputs.has_installer }}
+      has_branding: ${{ steps.scope.outputs.has_branding }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -40,7 +41,7 @@ jobs:
           echo 'Recovery/installer checks only. Native Qualcomm models, inherited vehicle safety-test disagreements, actual device validation and verified backup/rollback remain pending.' >> "$GITHUB_STEP_SUMMARY"
 
   installer-arm64:
-    name: Compile comma-three installer on ARM64
+    name: Compile comma-three installer and UI on ARM64
     needs: recovery-checks
     if: needs.recovery-checks.outputs.has_installer == 'true'
     runs-on: ubuntu-24.04-arm
@@ -73,6 +74,21 @@ jobs:
             --mount "type=bind,src=$GITHUB_WORKSPACE/recovery/installer,dst=/recipe,readonly" \
             benpilot-installer-ci bash /recipe/build-installer.sh
           python3 recovery/ci/verify_installer_artifact.py "$RUNNER_TEMP/benpilot-installer/install-benpilot-comma3-candidate"
+      - name: Compile branded comma-three UI without launching it
+        if: needs.recovery-checks.outputs.has_branding == 'true'
+        env:
+          BENPILOT_BUILD_COMMIT: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/benpilot-installer/ui"
+          chmod 1777 "$RUNNER_TEMP/benpilot-installer/ui"
+          docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges \
+            --pids-limit 512 --memory 5g --cpus 2 --env BENPILOT_BUILD_COMMIT \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/.git,dst=/source.git,readonly" \
+            --mount "type=bind,src=$RUNNER_TEMP/benpilot-installer/ui,dst=/out" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/recovery/branding,dst=/recipe,readonly" \
+            benpilot-installer-ci bash /recipe/build-ui.sh
       - name: Upload candidate build evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
