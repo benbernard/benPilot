@@ -12,6 +12,11 @@ test "$(git rev-parse HEAD)" = "$BENPILOT_BUILD_COMMIT"
 touch /TICI .lfsconfig
 mkdir -p /data/scons_cache
 export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
+# Ubuntu Mesa exports glEGLImageTargetTexture2DOES through libGL; AGNOS uses
+# its vendor GLES stack. Add the host link dependency only in this scratch tree.
+git apply --check /recipe/ubuntu-ui-linkage.patch
+git apply /recipe/ubuntu-ui-linkage.patch
+git diff -- selfdrive/ui/SConscript > /out/host-linkage-applied.patch
 # Compile the actual QCOM2/larch64 UI only. Never start UI/device services.
 scons -j2 selfdrive/ui/ui
 cp selfdrive/ui/ui /out/benpilot-ui-candidate
