@@ -83,7 +83,7 @@ if GetOption('extras'):
     senv = qt_env.Clone()
     senv['LINKFLAGS'].append('-Wl,-strip-debug')
 
-    release = "release3"
+    release = "jvePilot-release"
     installers = [
       ("openpilot", release),
       ("openpilot_test", f"{release}-staging"),

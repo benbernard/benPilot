@@ -11,6 +11,7 @@
 #include <QVBoxLayout>
 
 #include "common/util.h"
+#include "system/hardware/hw.h"
 #include "selfdrive/ui/installer/installer.h"
 #include "selfdrive/ui/qt/util.h"
 #include "selfdrive/ui/qt/qt_window.h"
@@ -22,13 +23,12 @@ std::string get_str(std::string const s) {
 }
 
 // Leave some extra space for the fork installer
-const std::string GIT_URL = get_str("https://github.com/commaai/openpilot.git" "?                                                                ");
+const std::string GIT_URL = get_str("https://github.com/benbernard/jvepilot-recovery.git" "?                                                                ");
+const std::string EXPECTED_COMMIT = "b47add65d32e232b939d4915cca0b5a9ddafc48d";
 const std::string BRANCH_STR = get_str(BRANCH "?                                                                ");
 
 #define GIT_SSH_URL "git@github.com:commaai/openpilot.git"
 #define CONTINUE_PATH "/data/continue.sh"
-
-const QString CACHE_PATH = "/data/openpilot.cache";
 
 #define INSTALL_PATH "/data/openpilot"
 #define TMP_INSTALL_PATH "/data/tmppilot"
@@ -61,6 +61,7 @@ Installer::Installer(QWidget *parent) : QWidget(parent) {
   layout->addSpacing(30);
 
   val = new QLabel("0%");
+  val->setWordWrap(true);
   val->setStyleSheet("font-size: 70px; font-weight: 300;");
   layout->addWidget(val, 0, Qt::AlignTop);
 
@@ -94,6 +95,16 @@ void Installer::updateProgress(int percent) {
 }
 
 void Installer::doInstall() {
+  // Recovery preflight: refuse other hardware/OS rather than allowing an
+  // unreviewed OS transition. These checks precede any installation writes.
+  if (util::strip(util::read_file("/VERSION")) != "11.13" || Hardware::get_name() != "tici") {
+    val->setText(tr("Requires comma three with AGNOS 11.13. No installation changes made."));
+    return;
+  }
+  if (QDir(INSTALL_PATH).exists()) {
+    val->setText(tr("Existing installation found. Preserve a verified backup and follow the reviewed reinstall plan first."));
+    return;
+  }
   // wait for valid time
   while (!util::system_time_valid()) {
     usleep(500 * 1000);
@@ -101,14 +112,12 @@ void Installer::doInstall() {
   }
 
   // cleanup previous install attempts
-  run("rm -rf " TMP_INSTALL_PATH " " INSTALL_PATH);
+  run("rm -rf " TMP_INSTALL_PATH);
 
   // do the install
-  if (QDir(CACHE_PATH).exists()) {
-    cachedFetch(CACHE_PATH);
-  } else {
-    freshClone();
-  }
+  // A cached checkout can retain the discontinued origin. Always clone the
+  // explicit recovery repository; leave the existing cache untouched.
+  freshClone();
 }
 
 void Installer::freshClone() {
@@ -155,6 +164,10 @@ void Installer::readProgress() {
 
 void Installer::cloneFinished(int exitCode, QProcess::ExitStatus exitStatus) {
   qDebug() << "git finished with " << exitCode;
+  if (exitStatus != QProcess::NormalExit || exitCode != 0) {
+    val->setText(tr("Source download failed. No installation activated."));
+    return;
+  }
   assert(exitCode == 0);
 
   updateProgress(100);
@@ -165,6 +178,11 @@ void Installer::cloneFinished(int exitCode, QProcess::ExitStatus exitStatus) {
   run(("git checkout " + BRANCH_STR).c_str());
   run(("git reset --hard origin/" + BRANCH_STR).c_str());
   run("git submodule update --init");
+
+  if (util::strip(util::check_output("git rev-parse HEAD")) != EXPECTED_COMMIT) {
+    val->setText(tr("Recovery source revision changed. No installation activated."));
+    return;
+  }
 
   // move into place
   run("mv " TMP_INSTALL_PATH " " INSTALL_PATH);
