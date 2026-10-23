@@ -91,7 +91,7 @@ void TermsPage::showEvent(QShowEvent *event) {
   vlayout->setContentsMargins(165, 165, 165, 0);
   main_layout->addLayout(vlayout);
 
-  QLabel *title = new QLabel(tr("Welcome to openpilot"));
+  QLabel *title = new QLabel(tr("Welcome to benPilot"));
   title->setStyleSheet("font-size: 90px; font-weight: 500;");
   vlayout->addWidget(title, 0, Qt::AlignTop | Qt::AlignLeft);
 

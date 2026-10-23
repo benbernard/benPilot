@@ -57,11 +57,11 @@ private:
   ButtonControl *pair_device;
 };
 
-class JvePilotTogglesPanel : public ListWidget {
+class BenPilotTogglesPanel : public ListWidget {
   Q_OBJECT
 
 public:
-  explicit JvePilotTogglesPanel(QWidget *parent = nullptr);
+  explicit BenPilotTogglesPanel(QWidget *parent = nullptr);
 
 private:
   Params params;
