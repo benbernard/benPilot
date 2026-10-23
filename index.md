@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+---
+layout: default
+title: benPilot
+---
 
-You can use the [editor on GitHub](https://github.com/j-vanetten/openpilot/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# benPilot
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A recovery fork of **[jvePilot by John Van Etten (j-vanetten)](https://github.com/j-vanetten/openpilot)**, based on [comma.ai openpilot](https://github.com/commaai/openpilot). Original attribution, licenses and source history are preserved.
 
-### Markdown
+## UI-branded July candidate
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The new application identifies itself as **benPilot 0.9.8(v3.18)-benPilot.1** in its app name, settings, welcome and alert labels. The Software screen credits jvePilot and its author. Existing settings keys and serialized schemas stay unchanged, as do the original July control logic, safety checks, models and firmware source.
 
-```markdown
-Syntax highlighted code block
+- [Review candidate 3, source, checksums and build limits](https://github.com/benbernard/benPilot/releases/tag/benpilot-ui-july-c3-candidate-3)
+- [Download the pinned installer bootstrap](https://github.com/benbernard/benPilot/releases/download/benpilot-ui-july-c3-candidate-3/install-benpilot-comma3-candidate)
+- [Inspect the exact branded payload](https://github.com/benbernard/benPilot/tree/2a8c27188bf10021736621bab4ce6975fc38edcc)
 
-# Header 1
-## Header 2
-### Header 3
+**Candidate only — do not load it before backup and compatibility review.** The bootstrap requires comma three (`tici`) with AGNOS 11.13 and refuses an existing installation. It is not a complete prebuilt driving image. Before device work, confirm the vehicle is parked, inventory installed source/OS/firmware, verify private installation/settings/calibration backup and rollback, and obtain the required deployment confirmation. Device validation and inherited safety-test disagreements remain pending.
 
-- Bulleted
-- List
+Payload channel: `benPilot-release`, pinned at `2a8c27188bf10021736621bab4ce6975fc38edcc`. It retains the original July release behavior and normal update/failure checks. This page does not confirm successful installation or vehicle compatibility.
 
-1. Numbered
-2. List
+## Original recovery preserved
 
-**Bold** and _Italic_ and `Code` text
+[Candidate 2](https://github.com/benbernard/benPilot/releases/tag/benpilot-july-c3-candidate-2) still downloads the original July jvePilot UI. The original source remains on [`jvePilot-release`](https://github.com/benbernard/benPilot/tree/jvePilot-release), commit `b47add65d32e232b939d4915cca0b5a9ddafc48d`, version 0.9.8(v3.18).
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/j-vanetten/openpilot/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[Source repository and recovery evidence](https://github.com/benbernard/benPilot) · [Original-source recovery release](https://github.com/benbernard/benPilot/releases/tag/jve-july-2025-recovery-source-1)
