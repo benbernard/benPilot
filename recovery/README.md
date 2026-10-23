@@ -26,6 +26,8 @@ The five remaining fresh-process failures are `test_buttons`, `test_cruise_engag
 
 The genuine Qualcomm model build loaded the unchanged local ONNX model, then failed at opening **`/dev/kgsl-3d0`**, absent from the Mac's ARM64 Linux VM. This confirms that ARM64 alone does not provide the required Qualcomm GPU. CPU-generated or mocked model outputs were not substituted. The [original model build rules](https://github.com/j-vanetten/openpilot/blob/b47add65d32e232b939d4915cca0b5a9ddafc48d/selfdrive/modeld/SConscript) and [QCOM runtime](https://github.com/j-vanetten/openpilot/blob/b47add65d32e232b939d4915cca0b5a9ddafc48d/tinygrad_repo/tinygrad/runtime/ops_qcom.py) establish the requirement.
 
+The [focused diagnosis of all five failures](SAFETY-FAILURE-DIAGNOSIS.md) now separates missing-state fixtures, stale expected message lists and actual baseline button/control-state acceptance. Six memory-only probes agree between the generated test DBC and JVE production DBC. No assertions or safety code were changed; the failures remain recorded.
+
 ## Exact remaining gates
 
 1. Obtain the already configured comma IP/SSH alias and parked confirmation. The existing Mac configuration contains no comma host; no speculative host connection was attempted. JVE documents the standard comma GitHub-key SSH mechanism, plus the comma Prime proxy where already configured. No keys/access were added.

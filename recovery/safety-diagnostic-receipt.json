@@ -1,0 +1,15 @@
+{
+  "source_sha": "b47add65d32e232b939d4915cca0b5a9ddafc48d",
+  "critical_baseline_files_verified_per_tree": 512,
+  "trees_checked": [
+    "source-review",
+    "recovery-july-c3",
+    "compiled-checkout"
+  ],
+  "focused_probes": 6,
+  "dbc_variants_agree": true,
+  "production_or_inherited_test_edits": false,
+  "full_build_retried": false,
+  "device_contacted": false,
+  "diagnostic_observations_sha256": "d5745d8f399ad19d0cc3343c3860abe5b778668661c7d7fb4c13039720e9f616"
+}
