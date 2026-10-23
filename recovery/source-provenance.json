@@ -2,7 +2,7 @@
   "source_commit": "b47add65d32e232b939d4915cca0b5a9ddafc48d",
   "source_tree": "2f99cbea39fd86565c4732fe7293750a8fde5715",
   "original_repository": "https://github.com/j-vanetten/openpilot",
-  "recovery_repository": "https://github.com/benbernard/jvepilot-recovery",
+  "recovery_repository": "https://github.com/benbernard/benPilot",
   "recovery_release_ref": "refs/heads/jvePilot-release",
   "version": "0.9.8(v3.18)",
   "target_hardware": "comma three (user confirmed)",
