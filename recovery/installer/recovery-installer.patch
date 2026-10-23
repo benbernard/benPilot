@@ -1,5 +1,5 @@
 diff --git a/selfdrive/ui/SConscript b/selfdrive/ui/SConscript
-index 8fa4b55..3b7fcf7 100644
+index 8fa4b55..fc43d3d 100644
 --- a/selfdrive/ui/SConscript
 +++ b/selfdrive/ui/SConscript
 @@ -83,7 +83,7 @@ if GetOption('extras'):
@@ -7,12 +7,12 @@ index 8fa4b55..3b7fcf7 100644
      senv['LINKFLAGS'].append('-Wl,-strip-debug')
  
 -    release = "release3"
-+    release = "jvePilot-release"
++    release = "benPilot-release"
      installers = [
        ("openpilot", release),
        ("openpilot_test", f"{release}-staging"),
 diff --git a/selfdrive/ui/installer/installer.cc b/selfdrive/ui/installer/installer.cc
-index 84486e6..a0e5188 100644
+index 84486e6..78821c5 100644
 --- a/selfdrive/ui/installer/installer.cc
 +++ b/selfdrive/ui/installer/installer.cc
 @@ -11,6 +11,7 @@
@@ -29,7 +29,7 @@ index 84486e6..a0e5188 100644
  // Leave some extra space for the fork installer
 -const std::string GIT_URL = get_str("https://github.com/commaai/openpilot.git" "?                                                                ");
 +const std::string GIT_URL = get_str("https://github.com/benbernard/benPilot.git" "?                                                                ");
-+const std::string EXPECTED_COMMIT = "b47add65d32e232b939d4915cca0b5a9ddafc48d";
++const std::string EXPECTED_COMMIT = "2a8c27188bf10021736621bab4ce6975fc38edcc";
  const std::string BRANCH_STR = get_str(BRANCH "?                                                                ");
  
  #define GIT_SSH_URL "git@github.com:commaai/openpilot.git"

@@ -24,7 +24,7 @@ std::string get_str(std::string const s) {
 
 // Leave some extra space for the fork installer
 const std::string GIT_URL = get_str("https://github.com/benbernard/benPilot.git" "?                                                                ");
-const std::string EXPECTED_COMMIT = "b47add65d32e232b939d4915cca0b5a9ddafc48d";
+const std::string EXPECTED_COMMIT = "2a8c27188bf10021736621bab4ce6975fc38edcc";
 const std::string BRANCH_STR = get_str(BRANCH "?                                                                ");
 
 #define GIT_SSH_URL "git@github.com:commaai/openpilot.git"

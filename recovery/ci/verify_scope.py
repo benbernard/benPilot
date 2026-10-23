@@ -32,6 +32,8 @@ assert readme.startswith('# benPilot') and 'jvePilot' in readme and 'John Van Et
 assert 'https://github.com/j-vanetten/openpilot' in readme
 assert git('show', f'{BASELINE}:launch_env.sh').find('11.13') >= 0
 verify_branding(ROOT)
+from verify_payload_ref import verify as verify_payload_ref
+verify_payload_ref(ROOT)
 
 if has_installer:
   actual = git('diff', '--binary', BASELINE, 'HEAD', '--', *INSTALLER_PATHS)
