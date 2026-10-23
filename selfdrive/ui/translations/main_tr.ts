@@ -124,15 +124,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>openpilot Longitudinal Control (Alpha)</source>
+        <source>benPilot Longitudinal Control (Alpha)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>WARNING: openpilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
+        <source>WARNING: benPilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>On this car, openpilot defaults to the car&apos;s built-in ACC instead of openpilot&apos;s longitudinal control. Enable this to switch to openpilot longitudinal control. Enabling Experimental mode is recommended when enabling openpilot longitudinal control alpha.</source>
+        <source>On this car, benPilot defaults to the car&apos;s built-in ACC instead of benPilot&apos;s longitudinal control. Enable this to switch to benPilot longitudinal control. Enabling Experimental mode is recommended when enabling benPilot longitudinal control alpha.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -191,8 +191,8 @@
         <translation>GÖZDEN GEÇİR</translation>
     </message>
     <message>
-        <source>Review the rules, features, and limitations of openpilot</source>
-        <translation>openpilot sisteminin kurallarını ve sınırlamalarını gözden geçirin.</translation>
+        <source>Review the rules, features, and limitations of benPilot</source>
+        <translation>benPilot sisteminin kurallarını ve sınırlamalarını gözden geçirin.</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
@@ -227,8 +227,8 @@
         <translation>Sistemi kapat</translation>
     </message>
     <message>
-        <source>openpilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. openpilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>openpilot, cihazın 4° sola veya 5° yukarı yada 9° aşağı bakıcak şekilde monte edilmesi gerekmektedir. openpilot sürekli kendisini kalibre edilmektedir ve nadiren sıfırlama gerebilir.</translation>
+        <source>benPilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. benPilot is continuously calibrating, resetting is rarely required.</source>
+        <translation>benPilot, cihazın 4° sola veya 5° yukarı yada 9° aşağı bakıcak şekilde monte edilmesi gerekmektedir. benPilot sürekli kendisini kalibre edilmektedir ve nadiren sıfırlama gerebilir.</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -471,7 +471,7 @@ Firehose Mode allows you to maximize your training data uploads to improve openp
 <context>
     <name>OnroadAlerts</name>
     <message>
-        <source>openpilot Unavailable</source>
+        <source>benPilot Unavailable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -992,7 +992,7 @@ This may take up to a minute.</source>
         <translation>Kabul et</translation>
     </message>
     <message>
-        <source>Welcome to openpilot</source>
+        <source>Welcome to benPilot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1003,12 +1003,12 @@ This may take up to a minute.</source>
 <context>
     <name>TogglesPanel</name>
     <message>
-        <source>Enable openpilot</source>
-        <translation>openpilot&apos;u aktifleştir</translation>
+        <source>Enable benPilot</source>
+        <translation>benPilot&apos;u aktifleştir</translation>
     </message>
     <message>
-        <source>Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>Ayarlanabilir hız sabitleyici ve şeritte kalma yardımı için openpilot sistemini kullanın. Bu özelliği kullanırken her zaman dikkatli olmanız gerekiyor. Bu ayarın değiştirilmesi için araç kapatılıp açılması gerekiyor.</translation>
+        <source>Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
+        <translation>Ayarlanabilir hız sabitleyici ve şeritte kalma yardımı için benPilot sistemini kullanın. Bu özelliği kullanırken her zaman dikkatli olmanız gerekiyor. Bu ayarın değiştirilmesi için araç kapatılıp açılması gerekiyor.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1035,8 +1035,8 @@ This may take up to a minute.</source>
         <translation>Sürücüye bakan kamera verisini yükleyin ve Cihazın algoritmasını geliştirmemize yardımcı olun.</translation>
     </message>
     <message>
-        <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
-        <translation>Aktifleştirilirse eğer gaz pedalına basınca openpilot devre dışı kalır.</translation>
+        <source>When enabled, pressing the accelerator pedal will disengage benPilot.</source>
+        <translation>Aktifleştirilirse eğer gaz pedalına basınca benPilot devre dışı kalır.</translation>
     </message>
     <message>
         <source>Experimental Mode</source>
@@ -1063,7 +1063,7 @@ This may take up to a minute.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>openpilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
+        <source>benPilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1071,7 +1071,7 @@ This may take up to a minute.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
+        <source>Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1083,19 +1083,19 @@ This may take up to a minute.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>openpilot longitudinal control may come in a future update.</source>
+        <source>benPilot longitudinal control may come in a future update.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
+        <source>An alpha version of benPilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable the openpilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
+        <source>Enable the benPilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode openpilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
+        <source>Standard is recommended. In aggressive mode, benPilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode benPilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1107,7 +1107,7 @@ This may take up to a minute.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enable driver monitoring even when openpilot is not engaged.</source>
+        <source>Enable driver monitoring even when benPilot is not engaged.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

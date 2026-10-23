@@ -124,16 +124,16 @@
         <translation>縱向機動模式</translation>
     </message>
     <message>
-        <source>openpilot Longitudinal Control (Alpha)</source>
-        <translation>openpilot 縱向控制 (Alpha 版)</translation>
+        <source>benPilot Longitudinal Control (Alpha)</source>
+        <translation>benPilot 縱向控制 (Alpha 版)</translation>
     </message>
     <message>
-        <source>WARNING: openpilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
-        <translation>警告：此車輛的 openpilot 縱向控制功能目前處於 Alpha 版本，使用此功能將會停用自動緊急煞車（AEB）功能。</translation>
+        <source>WARNING: benPilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
+        <translation>警告：此車輛的 benPilot 縱向控制功能目前處於 Alpha 版本，使用此功能將會停用自動緊急煞車（AEB）功能。</translation>
     </message>
     <message>
-        <source>On this car, openpilot defaults to the car&apos;s built-in ACC instead of openpilot&apos;s longitudinal control. Enable this to switch to openpilot longitudinal control. Enabling Experimental mode is recommended when enabling openpilot longitudinal control alpha.</source>
-        <translation>在這輛車上，openpilot 預設使用車輛內建的主動巡航控制（ACC），而非 openpilot 的縱向控制。啟用此項功能可切換至 openpilot 的縱向控制。當啟用 openpilot 縱向控制 Alpha 版本時，建議同時啟用實驗性模式（Experimental mode）。</translation>
+        <source>On this car, benPilot defaults to the car&apos;s built-in ACC instead of benPilot&apos;s longitudinal control. Enable this to switch to benPilot longitudinal control. Enabling Experimental mode is recommended when enabling benPilot longitudinal control alpha.</source>
+        <translation>在這輛車上，benPilot 預設使用車輛內建的主動巡航控制（ACC），而非 benPilot 的縱向控制。啟用此項功能可切換至 benPilot 的縱向控制。當啟用 benPilot 縱向控制 Alpha 版本時，建議同時啟用實驗性模式（Experimental mode）。</translation>
     </message>
     <message>
         <source>Enable ADB</source>
@@ -191,8 +191,8 @@
         <translation>觀看</translation>
     </message>
     <message>
-        <source>Review the rules, features, and limitations of openpilot</source>
-        <translation>觀看 openpilot 的使用規則、功能和限制</translation>
+        <source>Review the rules, features, and limitations of benPilot</source>
+        <translation>觀看 benPilot 的使用規則、功能和限制</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
@@ -227,8 +227,8 @@
         <translation>關機</translation>
     </message>
     <message>
-        <source>openpilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. openpilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>openpilot 需要將裝置固定在左右偏差 4° 以內，朝上偏差 5° 以內或朝下偏差 9° 以內。鏡頭在後台會持續自動校準，很少有需要重置的情況。</translation>
+        <source>benPilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. benPilot is continuously calibrating, resetting is rarely required.</source>
+        <translation>benPilot 需要將裝置固定在左右偏差 4° 以內，朝上偏差 5° 以內或朝下偏差 9° 以內。鏡頭在後台會持續自動校準，很少有需要重置的情況。</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -472,8 +472,8 @@ Firehose Mode allows you to maximize your training data uploads to improve openp
 <context>
     <name>OnroadAlerts</name>
     <message>
-        <source>openpilot Unavailable</source>
-        <translation>無法使用 openpilot</translation>
+        <source>benPilot Unavailable</source>
+        <translation>無法使用 benPilot</translation>
     </message>
     <message>
         <source>TAKE CONTROL IMMEDIATELY</source>
@@ -994,7 +994,7 @@ This may take up to a minute.</source>
         <translation>接受</translation>
     </message>
     <message>
-        <source>Welcome to openpilot</source>
+        <source>Welcome to benPilot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1005,12 +1005,12 @@ This may take up to a minute.</source>
 <context>
     <name>TogglesPanel</name>
     <message>
-        <source>Enable openpilot</source>
-        <translation>啟用 openpilot</translation>
+        <source>Enable benPilot</source>
+        <translation>啟用 benPilot</translation>
     </message>
     <message>
-        <source>Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>使用 openpilot 的主動式巡航和車道保持功能，開啟後您需要持續集中注意力，設定變更在重新啟動車輛後生效。</translation>
+        <source>Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
+        <translation>使用 benPilot 的主動式巡航和車道保持功能，開啟後您需要持續集中注意力，設定變更在重新啟動車輛後生效。</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1041,20 +1041,20 @@ This may take up to a minute.</source>
         <translation>油門取消控車</translation>
     </message>
     <message>
-        <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
-        <translation>啟用後，踩踏油門將會取消 openpilot 控制。</translation>
+        <source>When enabled, pressing the accelerator pedal will disengage benPilot.</source>
+        <translation>啟用後，踩踏油門將會取消 benPilot 控制。</translation>
     </message>
     <message>
         <source>Experimental Mode</source>
         <translation>實驗模式</translation>
     </message>
     <message>
-        <source>openpilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
-        <translation>openpilot 預設以 &lt;b&gt;輕鬆模式&lt;/b&gt; 駕駛。    實驗模式啟用了尚未準備好進入輕鬆模式的 &lt;b&gt;alpha 級功能&lt;/b&gt;。實驗功能如下：</translation>
+        <source>benPilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
+        <translation>benPilot 預設以 &lt;b&gt;輕鬆模式&lt;/b&gt; 駕駛。    實驗模式啟用了尚未準備好進入輕鬆模式的 &lt;b&gt;alpha 級功能&lt;/b&gt;。實驗功能如下：</translation>
     </message>
     <message>
-        <source>Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
-        <translation>讓駕駛模型來控制油門及煞車。openpilot將會模擬人類的駕駛行為，包含在看見紅燈及停止標示時停車。由於車速將由駕駛模型決定，因此您設定的時速將成為速度上限。本功能仍在早期實驗階段，請預期模型有犯錯的可能性。</translation>
+        <source>Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
+        <translation>讓駕駛模型來控制油門及煞車。benPilot將會模擬人類的駕駛行為，包含在看見紅燈及停止標示時停車。由於車速將由駕駛模型決定，因此您設定的時速將成為速度上限。本功能仍在早期實驗階段，請預期模型有犯錯的可能性。</translation>
     </message>
     <message>
         <source>New Driving Visualization</source>
@@ -1065,8 +1065,8 @@ This may take up to a minute.</source>
         <translation>因車輛使用內建ACC系統，無法在本車輛上啟動實驗模式。</translation>
     </message>
     <message>
-        <source>openpilot longitudinal control may come in a future update.</source>
-        <translation>openpilot 縱向控制可能會在未來的更新中提供。</translation>
+        <source>benPilot longitudinal control may come in a future update.</source>
+        <translation>benPilot 縱向控制可能會在未來的更新中提供。</translation>
     </message>
     <message>
         <source>Aggressive</source>
@@ -1085,20 +1085,20 @@ This may take up to a minute.</source>
         <translation>駕駛風格</translation>
     </message>
     <message>
-        <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
-        <translation>在正式 (release) 版以外的分支上可以測試 openpilot 縱向控制的 Alpha 版本以及實驗模式。</translation>
+        <source>An alpha version of benPilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
+        <translation>在正式 (release) 版以外的分支上可以測試 benPilot 縱向控制的 Alpha 版本以及實驗模式。</translation>
     </message>
     <message>
-        <source>Enable the openpilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
-        <translation>啟用 openpilot 縱向控制（alpha）切換以允許實驗模式。</translation>
+        <source>Enable the benPilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
+        <translation>啟用 benPilot 縱向控制（alpha）切換以允許實驗模式。</translation>
     </message>
     <message>
         <source>End-to-End Longitudinal Control</source>
         <translation>端到端縱向控制</translation>
     </message>
     <message>
-        <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode openpilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
-        <translation>建議使用標準模式。在積極模式下，openpilot 會更接近前車並更積極地使用油門和剎車。在輕鬆模式下，openpilot 會與前車保持較遠距離。對於支援的汽車，您可以使用方向盤上的距離按鈕來切換這些駕駛風格。</translation>
+        <source>Standard is recommended. In aggressive mode, benPilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode benPilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
+        <translation>建議使用標準模式。在積極模式下，benPilot 會更接近前車並更積極地使用油門和剎車。在輕鬆模式下，benPilot 會與前車保持較遠距離。對於支援的汽車，您可以使用方向盤上的距離按鈕來切換這些駕駛風格。</translation>
     </message>
     <message>
         <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner.</source>
@@ -1109,8 +1109,8 @@ This may take up to a minute.</source>
         <translation>駕駛監控常開</translation>
     </message>
     <message>
-        <source>Enable driver monitoring even when openpilot is not engaged.</source>
-        <translation>即使在openpilot未激活時也啟用駕駛監控。</translation>
+        <source>Enable driver monitoring even when benPilot is not engaged.</source>
+        <translation>即使在benPilot未激活時也啟用駕駛監控。</translation>
     </message>
 </context>
 <context>

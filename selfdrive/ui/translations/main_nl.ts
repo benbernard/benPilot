@@ -163,8 +163,8 @@
         <translation>BEKIJKEN</translation>
     </message>
     <message>
-        <source>Review the rules, features, and limitations of openpilot</source>
-        <translation>Bekijk de regels, functies en beperkingen van openpilot</translation>
+        <source>Review the rules, features, and limitations of benPilot</source>
+        <translation>Bekijk de regels, functies en beperkingen van benPilot</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
@@ -199,8 +199,8 @@
         <translation>Uitschakelen</translation>
     </message>
     <message>
-        <source>openpilot requires the device to be mounted within 4° left or right and within 5° up or 8° down. openpilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>openpilot vereist dat het apparaat binnen 4° links of rechts en binnen 5° omhoog of 8° omlaag wordt gemonteerd. openpilot kalibreert continu, resetten is zelden nodig.</translation>
+        <source>benPilot requires the device to be mounted within 4° left or right and within 5° up or 8° down. benPilot is continuously calibrating, resetting is rarely required.</source>
+        <translation>benPilot vereist dat het apparaat binnen 4° links of rechts en binnen 5° omhoog of 8° omlaag wordt gemonteerd. benPilot kalibreert continu, resetten is zelden nodig.</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>Disengage to Reboot</source>
-        <translation>Deactiveer openpilot om opnieuw op te starten</translation>
+        <translation>Deactiveer benPilot om opnieuw op te starten</translation>
     </message>
     <message>
         <source>Are you sure you want to power off?</source>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Disengage to Power Off</source>
-        <translation>Deactiveer openpilot om uit te schakelen</translation>
+        <translation>Deactiveer benPilot om uit te schakelen</translation>
     </message>
 </context>
 <context>
@@ -975,12 +975,12 @@ ingesteld</translation>
 <context>
     <name>TogglesPanel</name>
     <message>
-        <source>Enable openpilot</source>
-        <translation>openpilot Inschakelen</translation>
+        <source>Enable benPilot</source>
+        <translation>benPilot Inschakelen</translation>
     </message>
     <message>
-        <source>Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>Gebruik het openpilot-systeem voor adaptieve cruisecontrol en rijstrookassistentie. Uw aandacht is te allen tijde vereist om deze functie te gebruiken. Het wijzigen van deze instelling wordt van kracht wanneer de auto wordt uitgeschakeld.</translation>
+        <source>Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
+        <translation>Gebruik het benPilot-systeem voor adaptieve cruisecontrol en rijstrookassistentie. Uw aandacht is te allen tijde vereist om deze functie te gebruiken. Het wijzigen van deze instelling wordt van kracht wanneer de auto wordt uitgeschakeld.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1011,8 +1011,8 @@ ingesteld</translation>
         <translation>Deactiveren Met Gaspedaal</translation>
     </message>
     <message>
-        <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
-        <translation>Indien ingeschakeld, zal het indrukken van het gaspedaal openpilot deactiveren.</translation>
+        <source>When enabled, pressing the accelerator pedal will disengage benPilot.</source>
+        <translation>Indien ingeschakeld, zal het indrukken van het gaspedaal benPilot deactiveren.</translation>
     </message>
     <message>
         <source>Show ETA in 24h Format</source>
@@ -1031,31 +1031,31 @@ ingesteld</translation>
         <translation>Toon kaart links in gesplitste schermweergave.</translation>
     </message>
     <message>
-        <source>openpilot Longitudinal Control</source>
-        <translation type="vanished">openpilot Longitudinale Controle</translation>
+        <source>benPilot Longitudinal Control</source>
+        <translation type="vanished">benPilot Longitudinale Controle</translation>
     </message>
     <message>
-        <source>openpilot will disable the car&apos;s radar and will take over control of gas and brakes. Warning: this disables AEB!</source>
-        <translation type="vanished">openpilot zal de radar van de auto uitschakelen en de controle over gas en remmen overnemen. Waarschuwing: hierdoor wordt AEB (automatische noodrem) uitgeschakeld!</translation>
+        <source>benPilot will disable the car&apos;s radar and will take over control of gas and brakes. Warning: this disables AEB!</source>
+        <translation type="vanished">benPilot zal de radar van de auto uitschakelen en de controle over gas en remmen overnemen. Waarschuwing: hierdoor wordt AEB (automatische noodrem) uitgeschakeld!</translation>
     </message>
     <message>
         <source>🌮 End-to-end longitudinal (extremely alpha) 🌮</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Experimental openpilot Longitudinal Control</source>
+        <source>Experimental benPilot Longitudinal Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;b&gt;WARNING: openpilot longitudinal control is experimental for this car and will disable AEB.&lt;/b&gt;</source>
+        <source>&lt;b&gt;WARNING: benPilot longitudinal control is experimental for this car and will disable AEB.&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would. Super experimental.</source>
+        <source>Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would. Super experimental.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>openpilot longitudinal control is not currently available for this car.</source>
+        <source>benPilot longitudinal control is not currently available for this car.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

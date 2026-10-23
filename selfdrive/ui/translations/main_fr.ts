@@ -124,16 +124,16 @@
         <translation>Mode manœuvre longitudinale</translation>
     </message>
     <message>
-        <source>openpilot Longitudinal Control (Alpha)</source>
-        <translation>Contrôle longitudinal openpilot (Alpha)</translation>
+        <source>benPilot Longitudinal Control (Alpha)</source>
+        <translation>Contrôle longitudinal benPilot (Alpha)</translation>
     </message>
     <message>
-        <source>WARNING: openpilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
-        <translation>ATTENTION : le contrôle longitudinal openpilot est en alpha pour cette voiture et désactivera le freinage d&apos;urgence automatique (AEB).</translation>
+        <source>WARNING: benPilot longitudinal control is in alpha for this car and will disable Automatic Emergency Braking (AEB).</source>
+        <translation>ATTENTION : le contrôle longitudinal benPilot est en alpha pour cette voiture et désactivera le freinage d&apos;urgence automatique (AEB).</translation>
     </message>
     <message>
-        <source>On this car, openpilot defaults to the car&apos;s built-in ACC instead of openpilot&apos;s longitudinal control. Enable this to switch to openpilot longitudinal control. Enabling Experimental mode is recommended when enabling openpilot longitudinal control alpha.</source>
-        <translation>Sur cette voiture, openpilot utilise par défaut le régulateur de vitesse adaptatif intégré à la voiture plutôt que le contrôle longitudinal d&apos;openpilot. Activez ceci pour passer au contrôle longitudinal openpilot. Il est recommandé d&apos;activer le mode expérimental lors de l&apos;activation du contrôle longitudinal openpilot alpha.</translation>
+        <source>On this car, benPilot defaults to the car&apos;s built-in ACC instead of benPilot&apos;s longitudinal control. Enable this to switch to benPilot longitudinal control. Enabling Experimental mode is recommended when enabling benPilot longitudinal control alpha.</source>
+        <translation>Sur cette voiture, benPilot utilise par défaut le régulateur de vitesse adaptatif intégré à la voiture plutôt que le contrôle longitudinal d&apos;benPilot. Activez ceci pour passer au contrôle longitudinal benPilot. Il est recommandé d&apos;activer le mode expérimental lors de l&apos;activation du contrôle longitudinal benPilot alpha.</translation>
     </message>
     <message>
         <source>Enable ADB</source>
@@ -195,8 +195,8 @@
         <translation>REVOIR</translation>
     </message>
     <message>
-        <source>Review the rules, features, and limitations of openpilot</source>
-        <translation>Revoir les règles, fonctionnalités et limitations d&apos;openpilot</translation>
+        <source>Review the rules, features, and limitations of benPilot</source>
+        <translation>Revoir les règles, fonctionnalités et limitations d&apos;benPilot</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
@@ -235,8 +235,8 @@
         <translation>Éteindre</translation>
     </message>
     <message>
-        <source>openpilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. openpilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>openpilot nécessite que l&apos;appareil soit monté à 4° à gauche ou à droite et à 5° vers le haut ou 9° vers le bas. openpilot se calibre en continu, la réinitialisation est rarement nécessaire.</translation>
+        <source>benPilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. benPilot is continuously calibrating, resetting is rarely required.</source>
+        <translation>benPilot nécessite que l&apos;appareil soit monté à 4° à gauche ou à droite et à 5° vers le haut ou 9° vers le bas. benPilot se calibre en continu, la réinitialisation est rarement nécessaire.</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -474,8 +474,8 @@ Firehose Mode allows you to maximize your training data uploads to improve openp
 <context>
     <name>OnroadAlerts</name>
     <message>
-        <source>openpilot Unavailable</source>
-        <translation>openpilot indisponible</translation>
+        <source>benPilot Unavailable</source>
+        <translation>benPilot indisponible</translation>
     </message>
     <message>
         <source>TAKE CONTROL IMMEDIATELY</source>
@@ -999,7 +999,7 @@ Cela peut prendre jusqu&apos;à une minute.</translation>
         <translation>Accepter</translation>
     </message>
     <message>
-        <source>Welcome to openpilot</source>
+        <source>Welcome to benPilot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1010,12 +1010,12 @@ Cela peut prendre jusqu&apos;à une minute.</translation>
 <context>
     <name>TogglesPanel</name>
     <message>
-        <source>Enable openpilot</source>
-        <translation>Activer openpilot</translation>
+        <source>Enable benPilot</source>
+        <translation>Activer benPilot</translation>
     </message>
     <message>
-        <source>Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>Utilisez le système openpilot pour le régulateur de vitesse adaptatif et l&apos;assistance au maintien de voie. Votre attention est requise en permanence pour utiliser cette fonctionnalité. La modification de ce paramètre prend effet lorsque la voiture est éteinte.</translation>
+        <source>Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
+        <translation>Utilisez le système benPilot pour le régulateur de vitesse adaptatif et l&apos;assistance au maintien de voie. Votre attention est requise en permanence pour utiliser cette fonctionnalité. La modification de ce paramètre prend effet lorsque la voiture est éteinte.</translation>
     </message>
     <message>
         <source>Experimental Mode</source>
@@ -1026,8 +1026,8 @@ Cela peut prendre jusqu&apos;à une minute.</translation>
         <translation>Désengager avec la pédale d&apos;accélérateur</translation>
     </message>
     <message>
-        <source>When enabled, pressing the accelerator pedal will disengage openpilot.</source>
-        <translation>Lorsqu&apos;il est activé, appuyer sur la pédale d&apos;accélérateur désengagera openpilot.</translation>
+        <source>When enabled, pressing the accelerator pedal will disengage benPilot.</source>
+        <translation>Lorsqu&apos;il est activé, appuyer sur la pédale d&apos;accélérateur désengagera benPilot.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1070,12 +1070,12 @@ Cela peut prendre jusqu&apos;à une minute.</translation>
         <translation>Personnalité de conduite</translation>
     </message>
     <message>
-        <source>openpilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
-        <translation>Par défaut, openpilot conduit en &lt;b&gt;mode détente&lt;/b&gt;. Le mode expérimental permet d&apos;activer des &lt;b&gt;fonctionnalités alpha&lt;/b&gt; qui ne sont pas prêtes pour le mode détente. Les fonctionnalités expérimentales sont listées ci-dessous :</translation>
+        <source>benPilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
+        <translation>Par défaut, benPilot conduit en &lt;b&gt;mode détente&lt;/b&gt;. Le mode expérimental permet d&apos;activer des &lt;b&gt;fonctionnalités alpha&lt;/b&gt; qui ne sont pas prêtes pour le mode détente. Les fonctionnalités expérimentales sont listées ci-dessous :</translation>
     </message>
     <message>
-        <source>Let the driving model control the gas and brakes. openpilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
-        <translation>Laissez le modèle de conduite contrôler l&apos;accélérateur et les freins. openpilot conduira comme il pense qu&apos;un humain le ferait, y compris s&apos;arrêter aux feux rouges et aux panneaux stop. Comme le modèle de conduite décide de la vitesse à adopter, la vitesse définie ne servira que de limite supérieure. Cette fonctionnalité est de qualité alpha ; des erreurs sont à prévoir.</translation>
+        <source>Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
+        <translation>Laissez le modèle de conduite contrôler l&apos;accélérateur et les freins. benPilot conduira comme il pense qu&apos;un humain le ferait, y compris s&apos;arrêter aux feux rouges et aux panneaux stop. Comme le modèle de conduite décide de la vitesse à adopter, la vitesse définie ne servira que de limite supérieure. Cette fonctionnalité est de qualité alpha ; des erreurs sont à prévoir.</translation>
     </message>
     <message>
         <source>New Driving Visualization</source>
@@ -1086,24 +1086,24 @@ Cela peut prendre jusqu&apos;à une minute.</translation>
         <translation>Le mode expérimental est actuellement indisponible pour cette voiture car le régulateur de vitesse adaptatif d&apos;origine est utilisé pour le contrôle longitudinal.</translation>
     </message>
     <message>
-        <source>openpilot longitudinal control may come in a future update.</source>
-        <translation>Le contrôle longitudinal openpilot pourrait être disponible dans une future mise à jour.</translation>
+        <source>benPilot longitudinal control may come in a future update.</source>
+        <translation>Le contrôle longitudinal benPilot pourrait être disponible dans une future mise à jour.</translation>
     </message>
     <message>
-        <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
-        <translation>Une version alpha du contrôle longitudinal openpilot peut être testée, avec le mode expérimental, sur des branches non publiées.</translation>
+        <source>An alpha version of benPilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
+        <translation>Une version alpha du contrôle longitudinal benPilot peut être testée, avec le mode expérimental, sur des branches non publiées.</translation>
     </message>
     <message>
         <source>End-to-End Longitudinal Control</source>
         <translation>Contrôle longitudinal de bout en bout</translation>
     </message>
     <message>
-        <source>Enable the openpilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
-        <translation>Activer le contrôle longitudinal d&apos;openpilot (en alpha) pour autoriser le mode expérimental.</translation>
+        <source>Enable the benPilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
+        <translation>Activer le contrôle longitudinal d&apos;benPilot (en alpha) pour autoriser le mode expérimental.</translation>
     </message>
     <message>
-        <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode openpilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
-        <translation>Le mode Standard est recommandé. En mode Agressif, openpilot suivra les véhicules de plus près et sera plus dynamique avec l&apos;accélérateur et le frein. En mode Détendu, openpilot maintiendra une distance plus importante avec les véhicules qui précèdent. Sur les véhicules compatibles, vous pouvez alterner entre ces personnalités à l&apos;aide du bouton de distance au volant.</translation>
+        <source>Standard is recommended. In aggressive mode, benPilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode benPilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
+        <translation>Le mode Standard est recommandé. En mode Agressif, benPilot suivra les véhicules de plus près et sera plus dynamique avec l&apos;accélérateur et le frein. En mode Détendu, benPilot maintiendra une distance plus importante avec les véhicules qui précèdent. Sur les véhicules compatibles, vous pouvez alterner entre ces personnalités à l&apos;aide du bouton de distance au volant.</translation>
     </message>
     <message>
         <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner.</source>
@@ -1114,8 +1114,8 @@ Cela peut prendre jusqu&apos;à une minute.</translation>
         <translation>Surveillance continue du conducteur</translation>
     </message>
     <message>
-        <source>Enable driver monitoring even when openpilot is not engaged.</source>
-        <translation>Activer la surveillance conducteur lorsque openpilot n&apos;est pas actif.</translation>
+        <source>Enable driver monitoring even when benPilot is not engaged.</source>
+        <translation>Activer la surveillance conducteur lorsque benPilot n&apos;est pas actif.</translation>
     </message>
 </context>
 <context>
