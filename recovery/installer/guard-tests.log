@@ -1,0 +1,2 @@
+PASS: actual preflight refuses wrong OS, wrong model and existing installation; valid target only cleans staging and requests fresh clone. No commands executed.
+PASS: static review confirms pinned source check precedes activation and fresh-clone origin is the user-owned recovery repository.

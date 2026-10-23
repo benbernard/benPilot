@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+exec > >(tee /out/build.log) 2>&1
+# Trust only the read-only checkout explicitly mounted by the build runner.
+# Its host UID differs from the root UID in the capability-restricted container.
+# Set this inside the disposable container so the upload-pack subprocess sees
+# the same single-path exception. No host Git configuration is mounted.
+git config --global --add safe.directory /source.git
+git clone --no-local --no-checkout /source.git /work/checkout
+cd /work/checkout
+# A shallow Actions checkout can hold the fetched baseline only in FETCH_HEAD;
+# cloning its advertised refs does not transfer that otherwise-unreachable tip.
+git fetch --no-tags --depth=1 /source.git b47add65d32e232b939d4915cca0b5a9ddafc48d
+git -c core.hooksPath=/dev/null checkout --detach b47add65d32e232b939d4915cca0b5a9ddafc48d
+git apply --check /recipe/recovery-installer.patch
+git apply /recipe/recovery-installer.patch
+touch /TICI .lfsconfig
+mkdir -p /data/scons_cache
+export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
+scons -j2 selfdrive/ui/installer/installers/installer_openpilot
+cp selfdrive/ui/installer/installers/installer_openpilot /out/install-benpilot-comma3-candidate
+readelf -h -l -d /out/install-benpilot-comma3-candidate > /out/elf-metadata.txt
+sha256sum /out/install-benpilot-comma3-candidate > /out/SHA256SUMS
+git diff --stat > /out/source-diff-stat.txt
+printf 'Installer candidate compiled only; not executed or device validated.\n'
