@@ -4,9 +4,12 @@ The actual Qt installer executable is never launched. run() records commands
 without executing them; no simulated /data path is created on the host/device.
 """
 from pathlib import Path
+import os
 import subprocess
+import tempfile
 
-src = Path('/installer-source/selfdrive/ui/installer/installer.cc').read_text()
+source_root = Path(os.environ.get('BENPILOT_SOURCE_ROOT', Path(__file__).resolve().parents[2]))
+src = (source_root / 'selfdrive/ui/installer/installer.cc').read_text()
 method = src[src.index('void Installer::doInstall() {'):src.index('void Installer::freshClone() {')]
 prefix = r'''
 #include <cassert>
@@ -54,10 +57,12 @@ int main() {
   std::cout << "PASS: actual preflight refuses wrong OS, wrong model and existing installation; valid target only cleans staging and requests fresh clone. No commands executed.\n";
 }
 '''
-out = Path('/out/guard-test.cpp')
+scratch = tempfile.TemporaryDirectory(prefix='benpilot-installer-guards-')
+out = Path(scratch.name) / 'guard-test.cpp'
 out.write_text(prefix+method+suffix)
-subprocess.run(['c++','-std=c++17','-Wall','-Wextra','-Werror',str(out),'-o','/out/guard-test'],check=True)
-subprocess.run(['/out/guard-test'],check=True)
+executable = out.with_suffix('')
+subprocess.run(['c++','-std=c++17','-Wall','-Wextra','-Werror',str(out),'-o',str(executable)],check=True)
+subprocess.run([str(executable)],check=True)
 clone = src[src.index('void Installer::cloneFinished('):src.index('int main(')]
 assert clone.index('!= EXPECTED_COMMIT') < clone.index('run("mv " TMP_INSTALL_PATH')
 assert 'b47add65d32e232b939d4915cca0b5a9ddafc48d' in src
