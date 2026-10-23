@@ -1,12 +1,13 @@
 diff --git a/selfdrive/ui/SConscript b/selfdrive/ui/SConscript
 --- a/selfdrive/ui/SConscript
 +++ b/selfdrive/ui/SConscript
-@@ -6,6 +6,8 @@ base_libs = [common, messaging, visionipc, transformations,
+@@ -6,6 +6,9 @@ base_libs = [common, messaging, visionipc, transformations,
  
  if arch == 'larch64':
    base_libs.append('EGL')
 +  # Disposable Ubuntu/Mesa compile check only; not an AGNOS runtime change.
 +  base_libs.append('GL')
++  base_libs.append(File('/out/libbenpilot_ubuntu_egl_dispatch.so'))
  
  if arch == "Darwin":
    del base_libs[base_libs.index('OpenCL')]

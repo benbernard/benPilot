@@ -27,7 +27,7 @@ Path('/out/brand-smoke.cc').write_text(source)
 flags = shlex.split(subprocess.check_output(['pkg-config', '--cflags', '--libs', 'Qt5Core'], text=True))
 subprocess.run(['c++', '-fPIC', '-I' + str(root), '/out/brand-smoke.cc', '-o', '/out/brand-smoke', *flags], check=True)
 subprocess.run(['/out/brand-smoke'], check=True)
-data = Path('/out/benpilot-ui-candidate').read_bytes()
+data = Path('/out/benpilot-ui-ubuntu-compile-check').read_bytes()
 for label in (b'benPilot', b'BenPilotTogglesPanel', b'jvePilot by John Van Etten'):
   assert label in data, f'Missing compiled UI identity: {label!r}'
 print('PASS: real Qt brand helper/version, compiled Spanish catalog and UI panel/origin credit identify benPilot. No UI/hardware service initialized.')

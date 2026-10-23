@@ -14,13 +14,15 @@ mkdir -p /data/scons_cache
 export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
 # Ubuntu Mesa exports glEGLImageTargetTexture2DOES through libGL; AGNOS uses
 # its vendor GLES stack. Add the host link dependency only in this scratch tree.
+c++ -fPIC -shared -Wl,--no-undefined -Wl,-soname,libbenpilot_ubuntu_egl_dispatch.so \
+  /recipe/ubuntu-egl-dispatch.cc -lEGL -o /out/libbenpilot_ubuntu_egl_dispatch.so
 git apply --check /recipe/ubuntu-ui-linkage.patch
 git apply /recipe/ubuntu-ui-linkage.patch
 git diff -- selfdrive/ui/SConscript > /out/host-linkage-applied.patch
 # Compile the actual QCOM2/larch64 UI only. Never start UI/device services.
 scons -j2 selfdrive/ui/ui
-cp selfdrive/ui/ui /out/benpilot-ui-candidate
-readelf -h -l -d /out/benpilot-ui-candidate > /out/ui-elf-metadata.txt
-sha256sum /out/benpilot-ui-candidate > /out/UI-SHA256SUMS
+cp selfdrive/ui/ui /out/benpilot-ui-ubuntu-compile-check
+readelf -h -l -d /out/benpilot-ui-ubuntu-compile-check > /out/ui-elf-metadata.txt
+sha256sum /out/benpilot-ui-ubuntu-compile-check > /out/UI-SHA256SUMS
 python3 /recipe/smoke_brand.py
 printf 'UI compiled only; not launched, installed or vehicle validated.\n'
