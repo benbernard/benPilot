@@ -64,6 +64,8 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/benpilot-installer"
+          # Root has no DAC override in this container; permit writes to this empty, ephemeral output directory.
+          chmod 1777 "$RUNNER_TEMP/benpilot-installer"
           docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges \
             --pids-limit 512 --memory 2500m --cpus 2 \
             --mount "type=bind,src=$GITHUB_WORKSPACE/.git,dst=/source.git,readonly" \
