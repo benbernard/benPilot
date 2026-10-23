@@ -1,0 +1,46 @@
+..s.FF...F.F....s..s....F.......
+======================================================================
+Temporary fault occurred: 0x1
+FAIL: test_buttons (opendbc.safety.tests.test_chrysler.TestChryslerSafety.test_buttons)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/checkout/opendbc/safety/tests/test_chrysler.py", line 72, in test_buttons
+    self.assertFalse(self._tx(self._button_msg(cancel=True, resume=True)))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_cruise_engaged_prev (opendbc.safety.tests.test_chrysler.TestChryslerSafety.test_cruise_engaged_prev)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/checkout/opendbc/safety/tests/common.py", line 935, in test_cruise_engaged_prev
+    self.assertEqual(engaged, self.safety.get_cruise_engaged_prev())
+AssertionError: True != False
+
+======================================================================
+FAIL: test_enable_control_allowed_from_cruise (opendbc.safety.tests.test_chrysler.TestChryslerSafety.test_enable_control_allowed_from_cruise)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/checkout/opendbc/safety/tests/common.py", line 925, in test_enable_control_allowed_from_cruise
+    self.assertTrue(self.safety.get_controls_allowed())
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_fwd_hook (opendbc.safety.tests.test_chrysler.TestChryslerSafety.test_fwd_hook)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/checkout/opendbc/safety/tests/common.py", line 725, in test_fwd_hook
+    self.assertEqual(fwd_bus, self.safety.safety_fwd_hook(bus, addr), f"{addr=:#x} from {bus=} to {fwd_bus=}")
+AssertionError: 0 != -1 : addr=0x2d9 from bus=2 to fwd_bus=0
+
+======================================================================
+FAIL: test_spam_can_buses (opendbc.safety.tests.test_chrysler.TestChryslerSafety.test_spam_can_buses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/checkout/opendbc/safety/tests/common.py", line 731, in test_spam_can_buses
+    self.assertFalse(self._tx(make_msg(bus, addr, 8)), f"allowed TX {addr=} {bus=}")
+AssertionError: True is not false : allowed TX addr=500 bus=0
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.092s
+
+FAILED (failures=5, skipped=3)

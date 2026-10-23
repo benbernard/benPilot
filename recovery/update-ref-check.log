@@ -1,0 +1,6 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.041s
+
+OK
+PASS: valid/same ref, new genuine release, absent ref + fetch failure, unreachable origin. No alerts/counters changed.

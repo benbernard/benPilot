@@ -1,0 +1,24 @@
+{
+  "status": "partial_target_compile_complete_validation_blocked",
+  "source_sha": "b47add65d32e232b939d4915cca0b5a9ddafc48d",
+  "code_changes": [],
+  "updater_ref_test": "passed_same_new_missing_unreachable",
+  "family_safety": {
+    "run": 96,
+    "passed": 66,
+    "failed": 21,
+    "skipped": 9
+  },
+  "fresh_pacifica_safety": {
+    "run": 32,
+    "passed": 24,
+    "failed": 5,
+    "skipped": 3
+  },
+  "model_build": "blocked_missing_/dev/kgsl-3d0",
+  "installed": false,
+  "device_contacted": false,
+  "backup_completed": false,
+  "image_id": "sha256:65b71be037d325f8d4380676b58a1bf8a705c2b2d2932c297a1a17c06d86921e arm64",
+  "environment_archive_sha256": "431f6b1f833124fe9b34495b2592e72571306d3d785bc0ed9422605c0d9df367"
+}
