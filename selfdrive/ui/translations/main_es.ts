@@ -1043,7 +1043,7 @@ Esto puede tardar un minuto.</translation>
     </message>
     <message>
         <source>Enable driver monitoring even when benPilot is not engaged.</source>
-        <translation>Habilitar el monitoreo del conductor incluso cuando Openpilot no esté activado.</translation>
+        <translation>Habilitar el monitoreo del conductor incluso cuando benPilot no esté activado.</translation>
     </message>
     <message>
         <source>Record and Upload Driver Camera</source>

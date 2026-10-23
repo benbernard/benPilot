@@ -192,7 +192,7 @@
     </message>
     <message>
         <source>Review the rules, features, and limitations of benPilot</source>
-        <translation>Wiederhole die Regeln, Fähigkeiten und Limitierungen von Openpilot</translation>
+        <translation>Wiederhole die Regeln, Fähigkeiten und Limitierungen von benPilot</translation>
     </message>
     <message>
         <source>Are you sure you want to review the training guide?</source>
@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>benPilot requires the device to be mounted within 4° left or right and within 5° up or 9° down. benPilot is continuously calibrating, resetting is rarely required.</source>
-        <translation>Damit Openpilot funktioniert, darf die Installationsposition nicht mehr als 4° nach rechts/links, 5° nach oben und 9° nach unten abweichen. Openpilot kalibriert sich durchgehend, ein Zurücksetzen ist selten notwendig.</translation>
+        <translation>Damit benPilot funktioniert, darf die Installationsposition nicht mehr als 4° nach rechts/links, 5° nach oben und 9° nach unten abweichen. benPilot kalibriert sich durchgehend, ein Zurücksetzen ist selten notwendig.</translation>
     </message>
     <message>
         <source> Your device is pointed %1° %2 and %3° %4.</source>
@@ -1011,11 +1011,11 @@ This may take up to a minute.</source>
     <name>TogglesPanel</name>
     <message>
         <source>Enable benPilot</source>
-        <translation>Openpilot aktivieren</translation>
+        <translation>benPilot aktivieren</translation>
     </message>
     <message>
         <source>Use the benPilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.</source>
-        <translation>Benutze das Openpilot System als adaptiven Tempomaten und Spurhalteassistenten. Deine Aufmerksamkeit ist jederzeit erforderlich, um diese Funktion zu nutzen. Diese Einstellung wird übernommen, wenn das Auto aus ist.</translation>
+        <translation>Benutze das benPilot System als adaptiven Tempomaten und Spurhalteassistenten. Deine Aufmerksamkeit ist jederzeit erforderlich, um diese Funktion zu nutzen. Diese Einstellung wird übernommen, wenn das Auto aus ist.</translation>
     </message>
     <message>
         <source>Enable Lane Departure Warnings</source>
@@ -1043,7 +1043,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>When enabled, pressing the accelerator pedal will disengage benPilot.</source>
-        <translation>Wenn aktiviert, deaktiviert sich Openpilot sobald das Gaspedal betätigt wird.</translation>
+        <translation>Wenn aktiviert, deaktiviert sich benPilot sobald das Gaspedal betätigt wird.</translation>
     </message>
     <message>
         <source>Experimental Mode</source>
@@ -1055,11 +1055,11 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>benPilot defaults to driving in &lt;b&gt;chill mode&lt;/b&gt;. Experimental mode enables &lt;b&gt;alpha-level features&lt;/b&gt; that aren&apos;t ready for chill mode. Experimental features are listed below:</source>
-        <translation>Openpilot fährt standardmäßig im &lt;b&gt;entspannten Modus&lt;/b&gt;. Der Experimentelle Modus aktiviert&lt;b&gt;Alpha-level Funktionen&lt;/b&gt;, die noch nicht für den entspannten Modus bereit sind. Die experimentellen Funktionen sind die Folgenden:</translation>
+        <translation>benPilot fährt standardmäßig im &lt;b&gt;entspannten Modus&lt;/b&gt;. Der Experimentelle Modus aktiviert&lt;b&gt;Alpha-level Funktionen&lt;/b&gt;, die noch nicht für den entspannten Modus bereit sind. Die experimentellen Funktionen sind die Folgenden:</translation>
     </message>
     <message>
         <source>Let the driving model control the gas and brakes. benPilot will drive as it thinks a human would, including stopping for red lights and stop signs. Since the driving model decides the speed to drive, the set speed will only act as an upper bound. This is an alpha quality feature; mistakes should be expected.</source>
-        <translation>Lass das Fahrmodell Gas und Bremse kontrollieren. Openpilot wird so fahren, wie es dies von einem Menschen erwarten würde; inklusive des Anhaltens für Ampeln und Stoppschildern. Da das Fahrmodell entscheidet wie schnell es fährt stellt die gesetzte Geschwindigkeit lediglich das obere Limit dar. Dies ist ein Alpha-level Funktion. Fehler sind zu erwarten.</translation>
+        <translation>Lass das Fahrmodell Gas und Bremse kontrollieren. benPilot wird so fahren, wie es dies von einem Menschen erwarten würde; inklusive des Anhaltens für Ampeln und Stoppschildern. Da das Fahrmodell entscheidet wie schnell es fährt stellt die gesetzte Geschwindigkeit lediglich das obere Limit dar. Dies ist ein Alpha-level Funktion. Fehler sind zu erwarten.</translation>
     </message>
     <message>
         <source>New Driving Visualization</source>

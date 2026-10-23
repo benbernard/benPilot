@@ -33,7 +33,7 @@ def rebrand_catalog(original):
       selected = (name in ('TogglesPanel', 'DevicePanel', 'DeveloperPanel')
                   or (name == 'TermsPage' and source == 'Welcome to openpilot')
                   or (name == 'OnroadAlerts' and source == 'openpilot Unavailable'))
-      return text.replace('openpilot', 'benPilot') if selected else text
+      return re.sub('openpilot', 'benPilot', text, flags=re.I) if selected else text
     return re.sub(r'<message(?: [^>]*)?>.*?</message>', message, block, flags=re.S)
   return re.sub(r'<context>.*?</context>', context, original, flags=re.S)
 

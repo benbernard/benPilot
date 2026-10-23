@@ -1137,7 +1137,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>Enable driver monitoring even when benPilot is not engaged.</source>
-        <translation>تمكين مراقبة السائق حتى عندما لا يكون نظام OpenPilot مُفعّلاً.</translation>
+        <translation>تمكين مراقبة السائق حتى عندما لا يكون نظام benPilot مُفعّلاً.</translation>
     </message>
 </context>
 <context>
