@@ -8,6 +8,9 @@ exec > >(tee /out/build.log) 2>&1
 git config --global --add safe.directory /source.git
 git clone --no-local --no-checkout /source.git /work/checkout
 cd /work/checkout
+# A shallow Actions checkout can hold the fetched baseline only in FETCH_HEAD;
+# cloning its advertised refs does not transfer that otherwise-unreachable tip.
+git fetch --no-tags --depth=1 /source.git b47add65d32e232b939d4915cca0b5a9ddafc48d
 git -c core.hooksPath=/dev/null checkout --detach b47add65d32e232b939d4915cca0b5a9ddafc48d
 git apply --check /recipe/recovery-installer.patch
 git apply /recipe/recovery-installer.patch
