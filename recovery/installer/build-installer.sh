@@ -10,8 +10,8 @@ touch /TICI .lfsconfig
 mkdir -p /data/scons_cache
 export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
 scons -j2 selfdrive/ui/installer/installers/installer_openpilot
-cp selfdrive/ui/installer/installers/installer_openpilot /out/install-comma3-candidate
-readelf -h -l -d /out/install-comma3-candidate > /out/elf-metadata.txt
-sha256sum /out/install-comma3-candidate > /out/SHA256SUMS
+cp selfdrive/ui/installer/installers/installer_openpilot /out/install-benpilot-comma3-candidate
+readelf -h -l -d /out/install-benpilot-comma3-candidate > /out/elf-metadata.txt
+sha256sum /out/install-benpilot-comma3-candidate > /out/SHA256SUMS
 git diff --stat > /out/source-diff-stat.txt
 printf 'Installer candidate compiled only; not executed or device validated.\n'

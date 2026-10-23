@@ -1,8 +1,8 @@
-# July comma-three installer candidate
+# benPilot July comma-three installer candidate
 
-This branch builds a small ARM64 installer bootstrap. It does **not** contain a complete prebuilt driving release and is not validated for installation on the fitted device yet. The payload remains exact original July commit `b47add65d32e232b939d4915cca0b5a9ddafc48d`, 0.9.8(v3.18), from the user-owned `jvePilot-release` channel. No controller, model, DBC, panda or safety code is changed by this branch.
+benPilot originates from jvePilot by John Van Etten (j-vanetten), based on comma.ai openpilot. This branch builds a small ARM64 installer bootstrap. It does **not** contain a complete prebuilt driving release and is not validated for installation on the fitted device yet. The payload remains exact original July commit `b47add65d32e232b939d4915cca0b5a9ddafc48d`, 0.9.8(v3.18), from the user-owned `jvePilot-release` channel. No controller, model, DBC, panda or safety code is changed by this branch.
 
-The separate [source recovery and validation draft](https://github.com/benbernard/jvepilot-recovery/pull/1) records the native model-generation requirement and inherited Pacifica safety-test disagreements. These remain deployment gates.
+The separate [source recovery and validation draft](https://github.com/benbernard/benPilot/pull/1) records the native model-generation requirement and inherited Pacifica safety-test disagreements. These remain deployment gates.
 
 ## Bootstrap changes
 

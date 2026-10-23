@@ -8,7 +8,7 @@ ELF Header:
   Type:                              DYN (Position-Independent Executable file)
   Machine:                           AArch64
   Version:                           0x1
-  Entry point address:               0xf880
+  Entry point address:               0xf840
   Start of program headers:          64 (bytes into file)
   Start of section headers:          364904 (bytes into file)
   Flags:                             0x0
@@ -28,14 +28,14 @@ Program Headers:
                  0x000000000000001b 0x000000000000001b  R      0x1
       [Requesting program interpreter: /lib/ld-linux-aarch64.so.1]
   LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
-                 0x0000000000031a80 0x0000000000031a80  R E    0x10000
+                 0x0000000000031bb8 0x0000000000031bb8  R E    0x10000
   LOAD           0x000000000003ebb0 0x000000000004ebb0 0x000000000004ebb0
                  0x0000000000002004 0x0000000000002260  RW     0x10000
   DYNAMIC        0x000000000003fa68 0x000000000004fa68 0x000000000004fa68
                  0x0000000000000270 0x0000000000000270  RW     0x8
   NOTE           0x0000000000000254 0x0000000000000254 0x0000000000000254
                  0x0000000000000044 0x0000000000000044  R      0x4
-  GNU_EH_FRAME   0x000000000002a86c 0x000000000002a86c 0x000000000002a86c
+  GNU_EH_FRAME   0x000000000002a974 0x000000000002a974 0x000000000002a974
                  0x0000000000000c44 0x0000000000000c44  R      0x4
   GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
                  0x0000000000000000 0x0000000000000000  RW     0x10
@@ -67,7 +67,7 @@ Dynamic section at offset 0x3fa68 contains 35 entries:
  0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
  0x000000000000001d (RUNPATH)            Library runpath: [/work/checkout/third_party/acados/larch64/lib:/usr/local/lib]
  0x000000000000000c (INIT)               0xb3c8
- 0x000000000000000d (FINI)               0x28110
+ 0x000000000000000d (FINI)               0x281d0
  0x0000000000000019 (INIT_ARRAY)         0x4ebb0
  0x000000000000001b (INIT_ARRAYSZ)       48 (bytes)
  0x000000000000001a (FINI_ARRAY)         0x4ebe0

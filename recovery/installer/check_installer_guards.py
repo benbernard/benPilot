@@ -61,6 +61,6 @@ subprocess.run(['/out/guard-test'],check=True)
 clone = src[src.index('void Installer::cloneFinished('):src.index('int main(')]
 assert clone.index('!= EXPECTED_COMMIT') < clone.index('run("mv " TMP_INSTALL_PATH')
 assert 'b47add65d32e232b939d4915cca0b5a9ddafc48d' in src
-assert 'https://github.com/benbernard/jvepilot-recovery.git' in src
+assert 'https://github.com/benbernard/benPilot.git' in src
 assert 'freshClone();' in method and 'cachedFetch(' not in method
 print('PASS: static review confirms pinned source check precedes activation and fresh-clone origin is the user-owned recovery repository.')

@@ -12,7 +12,7 @@ index 8fa4b55..3b7fcf7 100644
        ("openpilot", release),
        ("openpilot_test", f"{release}-staging"),
 diff --git a/selfdrive/ui/installer/installer.cc b/selfdrive/ui/installer/installer.cc
-index 84486e6..ff68873 100644
+index 84486e6..a0e5188 100644
 --- a/selfdrive/ui/installer/installer.cc
 +++ b/selfdrive/ui/installer/installer.cc
 @@ -11,6 +11,7 @@
@@ -28,7 +28,7 @@ index 84486e6..ff68873 100644
  
  // Leave some extra space for the fork installer
 -const std::string GIT_URL = get_str("https://github.com/commaai/openpilot.git" "?                                                                ");
-+const std::string GIT_URL = get_str("https://github.com/benbernard/jvepilot-recovery.git" "?                                                                ");
++const std::string GIT_URL = get_str("https://github.com/benbernard/benPilot.git" "?                                                                ");
 +const std::string EXPECTED_COMMIT = "b47add65d32e232b939d4915cca0b5a9ddafc48d";
  const std::string BRANCH_STR = get_str(BRANCH "?                                                                ");
  
@@ -40,7 +40,24 @@ index 84486e6..ff68873 100644
  #define INSTALL_PATH "/data/openpilot"
  #define TMP_INSTALL_PATH "/data/tmppilot"
  
-@@ -61,6 +61,7 @@ Installer::Installer(QWidget *parent) : QWidget(parent) {
+@@ -46,10 +46,15 @@ Installer::Installer(QWidget *parent) : QWidget(parent) {
+   layout->setContentsMargins(150, 290, 150, 150);
+   layout->setSpacing(0);
+ 
+-  QLabel *title = new QLabel(tr("Installing..."));
++  QLabel *title = new QLabel(tr("Installing benPilot..."));
+   title->setStyleSheet("font-size: 90px; font-weight: 600;");
+   layout->addWidget(title, 0, Qt::AlignTop);
+ 
++  QLabel *origin = new QLabel(tr("Based on jvePilot by John Van Etten"));
++  origin->setStyleSheet("font-size: 32px; color: #b5b5b5;");
++  origin->setWordWrap(true);
++  layout->addWidget(origin, 0, Qt::AlignTop);
++
+   layout->addSpacing(170);
+ 
+   bar = new QProgressBar();
+@@ -61,6 +66,7 @@ Installer::Installer(QWidget *parent) : QWidget(parent) {
    layout->addSpacing(30);
  
    val = new QLabel("0%");
@@ -48,7 +65,7 @@ index 84486e6..ff68873 100644
    val->setStyleSheet("font-size: 70px; font-weight: 300;");
    layout->addWidget(val, 0, Qt::AlignTop);
  
-@@ -94,6 +95,16 @@ void Installer::updateProgress(int percent) {
+@@ -94,6 +100,16 @@ void Installer::updateProgress(int percent) {
  }
  
  void Installer::doInstall() {
@@ -65,7 +82,7 @@ index 84486e6..ff68873 100644
    // wait for valid time
    while (!util::system_time_valid()) {
      usleep(500 * 1000);
-@@ -101,14 +112,12 @@ void Installer::doInstall() {
+@@ -101,14 +117,12 @@ void Installer::doInstall() {
    }
  
    // cleanup previous install attempts
@@ -84,7 +101,7 @@ index 84486e6..ff68873 100644
  }
  
  void Installer::freshClone() {
-@@ -155,6 +164,10 @@ void Installer::readProgress() {
+@@ -155,6 +169,10 @@ void Installer::readProgress() {
  
  void Installer::cloneFinished(int exitCode, QProcess::ExitStatus exitStatus) {
    qDebug() << "git finished with " << exitCode;
@@ -95,7 +112,7 @@ index 84486e6..ff68873 100644
    assert(exitCode == 0);
  
    updateProgress(100);
-@@ -166,6 +179,11 @@ void Installer::cloneFinished(int exitCode, QProcess::ExitStatus exitStatus) {
+@@ -166,6 +184,11 @@ void Installer::cloneFinished(int exitCode, QProcess::ExitStatus exitStatus) {
    run(("git reset --hard origin/" + BRANCH_STR).c_str());
    run("git submodule update --init");
  

@@ -23,7 +23,7 @@ std::string get_str(std::string const s) {
 }
 
 // Leave some extra space for the fork installer
-const std::string GIT_URL = get_str("https://github.com/benbernard/jvepilot-recovery.git" "?                                                                ");
+const std::string GIT_URL = get_str("https://github.com/benbernard/benPilot.git" "?                                                                ");
 const std::string EXPECTED_COMMIT = "b47add65d32e232b939d4915cca0b5a9ddafc48d";
 const std::string BRANCH_STR = get_str(BRANCH "?                                                                ");
 
@@ -46,9 +46,14 @@ Installer::Installer(QWidget *parent) : QWidget(parent) {
   layout->setContentsMargins(150, 290, 150, 150);
   layout->setSpacing(0);
 
-  QLabel *title = new QLabel(tr("Installing..."));
+  QLabel *title = new QLabel(tr("Installing benPilot..."));
   title->setStyleSheet("font-size: 90px; font-weight: 600;");
   layout->addWidget(title, 0, Qt::AlignTop);
+
+  QLabel *origin = new QLabel(tr("Based on jvePilot by John Van Etten"));
+  origin->setStyleSheet("font-size: 32px; color: #b5b5b5;");
+  origin->setWordWrap(true);
+  layout->addWidget(origin, 0, Qt::AlignTop);
 
   layout->addSpacing(170);
 

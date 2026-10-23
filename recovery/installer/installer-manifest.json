@@ -1,11 +1,11 @@
 {
   "artifact_kind": "source-installer-bootstrap-candidate",
-  "artifact_name": "install-comma3-candidate",
+  "artifact_name": "install-benpilot-comma3-candidate",
   "size_bytes": 366888,
-  "sha256": "8d756fa460e6d8e5700eb00c4468c25166eab3207eb62b4e15ea4c13011cedc6",
+  "sha256": "de66e040ffefa92ef09b5cc50510d0a2109ef47791d34d50c793223aeb95482b",
   "source_baseline": "b47add65d32e232b939d4915cca0b5a9ddafc48d",
-  "installer_patch_sha256": "8aee512f52c0f658fa4c814720e69741cca53e84cd966afff8e37676a56ad022",
-  "payload_repository": "https://github.com/benbernard/jvepilot-recovery.git",
+  "installer_patch_sha256": "292ee2e2895c59796f3b78cd397755b260b0d55113780716b66256f7593046aa",
+  "payload_repository": "https://github.com/benbernard/benPilot.git",
   "payload_branch": "jvePilot-release",
   "payload_expected_commit": "b47add65d32e232b939d4915cca0b5a9ddafc48d",
   "target": "comma three / tici",
@@ -22,5 +22,10 @@
   "backup_verified": false,
   "guard_tests": "4 cases passed against actual method with command/filesystem doubles",
   "linkage": "all needed libraries resolved in isolated Ubuntu 24.04 ARM64 build environment; fitted AGNOS unverified",
-  "environment_image": "sha256:4079b5b5adc1182908fee5d93ccb28380d10288d26e1c05d21c7c33acb00ca91 arm64"
+  "environment_image": "sha256:4079b5b5adc1182908fee5d93ccb28380d10288d26e1c05d21c7c33acb00ca91 arm64",
+  "project": "benPilot",
+  "originating_project": "jvePilot",
+  "originating_author": "John Van Etten (j-vanetten)",
+  "originating_repository": "https://github.com/j-vanetten/openpilot",
+  "based_on": "comma.ai openpilot"
 }
