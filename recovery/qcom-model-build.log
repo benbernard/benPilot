@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "/work/tinygrad_repo/examples/openpilot/compile3.py", line 129, in <module>
+loaded model
+    test_val = compile(onnx_file) if not getenv("RUN") else None
+               ^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad_repo/examples/openpilot/compile3.py", line 34, in compile
+    new_inputs = {k:Tensor.randn(*shp, dtype=_from_np_dtype(input_types[k])).mul(8).realize() for k,shp in sorted(input_shapes.items())}
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/tensor.py", line 3867, in _wrapper
+    ret = fn(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/tensor.py", line 230, in realize
+    run_schedule(*self.schedule_with_vars(*lst), do_update_stats=do_update_stats)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/tensor.py", line 3842, in _wrapper
+    if _METADATA.get() is not None: return fn(*args, **kwargs)
+                                           ^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/tensor.py", line 220, in schedule_with_vars
+    return memory_planner(schedule), var_vals
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/engine/memory.py", line 48, in memory_planner
+    assigned = _internal_memory_planner([si.bufs for si in schedule],
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/engine/memory.py", line 33, in _internal_memory_planner
+    assigned = {buf:find_replace_buffer(buf, st, en) for st, en, buf in buffer_requests}
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/engine/memory.py", line 22, in find_replace_buffer
+    key = (buf.device, buf.dtype, buf.options) + ((buf.nbytes,) if not hasattr(Device[buf.device].allocator, "offset") else tuple())
+                                                                               ~~~~~~^^^^^^^^^^^^
+  File "/work/tinygrad/device.py", line 21, in __getitem__
+    def __getitem__(self, ix:str) -> Compiled: return self.__get_canonicalized_item(self.canonicalize(ix))
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/device.py", line 27, in __get_canonicalized_item
+    ret = [cls for cname, cls in inspect.getmembers(importlib.import_module(f'{__name__.split(".")[0]}.runtime.ops_{x.lower()}')) \
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/tinygrad/runtime/ops_qcom.py", line 328, in __init__
+    self.fd = os.open('/dev/kgsl-3d0', os.O_RDWR)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/dev/kgsl-3d0'
