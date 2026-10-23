@@ -10,6 +10,7 @@ import subprocess
 BASELINE = 'b47add65d32e232b939d4915cca0b5a9ddafc48d'
 BRANDING_PATHS = (
   'common/version.h',
+  'selfdrive/selfdrived/events.py',
   'selfdrive/ui/qt/util.cc',
   'selfdrive/ui/qt/offroad/settings.cc',
   'selfdrive/ui/qt/offroad/settings.h',
@@ -21,6 +22,11 @@ BRANDING_PATHS = (
 
 
 def expected_source(path, original):
+  if path == 'selfdrive/selfdrived/events.py':
+    text = original
+    for old in ('openpilot Unavailable', 'openpilot will disengage', 'openpilot Canceled'):
+      text = text.replace('"' + old + '"', '"' + old.replace('openpilot', 'benPilot') + '"')
+    return text
   if path == 'common/version.h':
     return original.replace('0.9.8(v3.18)', '0.9.8(v3.18)-benPilot.1')
   if path.endswith('/util.cc'):
@@ -48,6 +54,8 @@ def verify(root):
   for path in BRANDING_PATHS:
     original = subprocess.check_output(['git', 'show', f'{BASELINE}:{path}'], cwd=root, text=True)
     actual = (root / path).read_text()
+    if path.endswith('.py'):
+      compile(actual, path, 'exec')
     assert actual == expected_source(path, original), f'Unreviewed change beyond branding: {path}'
     old_keys = re.findall(r'"jvePilot\.[^"\n]+"', original)
     new_keys = re.findall(r'"jvePilot\.[^"\n]+"', actual)

@@ -1,6 +1,6 @@
 # benPilot application branding
 
-The application calls itself **benPilot**, with version `0.9.8(v3.18)-benPilot.1`, a `BenPilotTogglesPanel`, renamed settings/help/welcome text, and a visible Software-screen credit to **jvePilot by John Van Etten**, based on comma.ai openpilot. Legal terms, upstream service identities, asset paths, stored `jvePilot.settings.*` keys, and serialized log/schema identifiers are retained. No settings migration, parameter reset, controller change, release-channel classification or warning suppression is part of this rename.
+The application calls itself **benPilot**, with version `0.9.8(v3.18)-benPilot.1`, a `BenPilotTogglesPanel`, renamed settings/help/welcome and unavailable/disengagement/cancellation alert text, and a visible Software-screen credit to **jvePilot by John Van Etten**, based on comma.ai openpilot. Legal terms, upstream service identities, asset paths, stored `jvePilot.settings.*` keys, and serialized log/schema identifiers are retained. Alert triggers, priorities, sounds and durations stay unchanged. No settings migration, parameter reset, controller change, release-channel classification or warning suppression is part of this rename.
 
 `verify_branding.py` compares the affected production files with exact permitted text/class substitutions against the original July commit. Recovery scope verification still rejects changes to control logic, safety code, models, firmware, OS requirements, parameter definitions and schemas. The installer patch remains separately checked.
 
