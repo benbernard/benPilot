@@ -4,6 +4,8 @@ Stored settings and serialized field names are compatibility identifiers, not
 product labels. This check rejects any additional change in these UI files.
 """
 from pathlib import Path
+import ast
+from dataclasses import dataclass
 import re
 import subprocess
 import xml.etree.ElementTree as ET
@@ -12,6 +14,7 @@ BASELINE = 'b47add65d32e232b939d4915cca0b5a9ddafc48d'
 LOCALES = ('ar', 'de', 'en', 'es', 'fr', 'ja', 'ko', 'nl', 'pl', 'pt-BR', 'th', 'tr', 'zh-CHS', 'zh-CHT')
 BRANDING_PATHS = (
   'common/version.h',
+  'system/version.py',
   'selfdrive/selfdrived/events.py',
   'selfdrive/ui/qt/util.cc',
   'selfdrive/ui/qt/offroad/settings.cc',
@@ -39,6 +42,8 @@ def rebrand_catalog(original):
 
 
 def expected_source(path, original):
+  if path == 'system/version.py':
+    return original.replace("RELEASE_BRANCHES = [", "RELEASE_BRANCHES = ['benPilot-release', ")
   if path.endswith('.ts'):
     return rebrand_catalog(original)
   if path == 'selfdrive/selfdrived/events.py':
@@ -69,6 +74,28 @@ def expected_source(path, original):
   raise AssertionError(path)
 
 
+def verify_channel_alias(root):
+  def load(text):
+    nodes = [n for n in ast.parse(text).body
+             if (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ('RELEASE_BRANCHES', 'TESTED_BRANCHES') for t in n.targets))
+             or (isinstance(n, ast.ClassDef) and n.name in ('OpenpilotMetadata', 'BuildMetadata'))]
+    namespace = {'dataclass': dataclass}
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), 'isolated-release-metadata', 'exec'), namespace)
+    return namespace
+  old = load(subprocess.check_output(['git', 'show', f'{BASELINE}:system/version.py'], cwd=root, text=True))
+  new = load((root / 'system/version.py').read_text())
+  def flags(namespace, channel):
+    metadata = namespace['OpenpilotMetadata']('0.9.8(v3.18)-benPilot.1', '', '0'*40,
+      'https://github.com/benbernard/benPilot.git', '', 'release', False)
+    assert not metadata.comma_remote, 'Do not impersonate upstream or suppress the fork warning'
+    build = namespace['BuildMetadata'](channel, metadata)
+    return build.release_channel, build.tested_channel
+  for channel in set(old['TESTED_BRANCHES']) | {'unknown', 'benPilot', 'branding/device-ui'}:
+    assert flags(old, channel) == flags(new, channel), channel
+  assert flags(new, 'benPilot-release') == flags(old, 'jvePilot-release')
+  print('PASS: benPilot-release retains the original July release flags; every existing channel and upstream/fork identity check is unchanged.')
+
+
 def verify(root):
   for path in BRANDING_PATHS:
     original = subprocess.check_output(['git', 'show', f'{BASELINE}:{path}'], cwd=root, text=True)
@@ -81,6 +108,7 @@ def verify(root):
     old_keys = re.findall(r'"jvePilot\.[^"\n]+"', original)
     new_keys = re.findall(r'"jvePilot\.[^"\n]+"', actual)
     assert old_keys == new_keys, f'Persistent setting identifiers changed: {path}'
+  verify_channel_alias(root)
   print('PASS: exact UI name/version/class substitutions and visible origin credit only; all stored setting identifiers retained.')
 
 

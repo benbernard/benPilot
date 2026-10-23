@@ -21,6 +21,12 @@ SOURCE = SOURCE_ROOT / 'system/updated/updated.py'
 
 class UpdateRefTest(unittest.TestCase):
   def test_available_missing_and_unreachable_refs(self):
+    self._exercise('jvePilot-release')
+
+  def test_benpilot_release_refs(self):
+    self._exercise('benPilot-release')
+
+  def _exercise(self, branch):
     module = ast.parse(SOURCE.read_text())
     method = next(m for cls in module.body if isinstance(cls, ast.ClassDef) and cls.name == 'Updater'
                   for m in cls.body if isinstance(m, ast.FunctionDef) and m.name == 'check_for_update')
@@ -32,32 +38,32 @@ class UpdateRefTest(unittest.TestCase):
         return subprocess.check_output(['git', '-c', 'core.hooksPath=/dev/null', *args], cwd=cwd, text=True,
                                        stderr=subprocess.STDOUT).strip()
 
-      git('init', '--bare', '--initial-branch=jvePilot-release', str(remote))
-      git('init', '--initial-branch=jvePilot-release', str(repo))
+      git('init', '--bare', f'--initial-branch={branch}', str(remote))
+      git('init', f'--initial-branch={branch}', str(repo))
       git('-c', 'user.name=Recovery Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-m', 'fixture', cwd=repo)
       sha = git('rev-parse', 'HEAD', cwd=repo)
       git('remote', 'add', 'origin', str(remote), cwd=repo)
-      git('push', 'origin', 'jvePilot-release', cwd=repo)
+      git('push', 'origin', branch, cwd=repo)
       messages = []
       namespace = {'cloudlog': SimpleNamespace(info=messages.append), 'OVERLAY_MERGED': str(repo),
                    'run': lambda cmd, cwd: subprocess.check_output(cmd, cwd=cwd, text=True, stderr=subprocess.STDOUT),
                    'setup_git_options': lambda _: None, 'subprocess': subprocess, 'defaultdict': defaultdict, 're': re}
       exec(compile(ast.Module(body=[method], type_ignores=[]), str(SOURCE), 'exec'), namespace)
-      updater = SimpleNamespace(target_branch='jvePilot-release',
-                                get_branch=lambda _: 'jvePilot-release', get_commit_hash=lambda _: sha)
+      updater = SimpleNamespace(target_branch=branch,
+                                get_branch=lambda _: branch, get_commit_hash=lambda _: sha)
       check = namespace['check_for_update']
       check(updater)
       self.assertTrue(updater._has_internet)
-      self.assertEqual(updater.branches['jvePilot-release'], sha)
+      self.assertEqual(updater.branches[branch], sha)
       self.assertIn('up to date', messages[-1])
 
       publisher = Path(tmp) / 'publisher'
       git('clone', str(remote), str(publisher))
       git('-c', 'user.name=Recovery Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-m', 'new fixture release', cwd=publisher)
       next_sha = git('rev-parse', 'HEAD', cwd=publisher)
-      git('push', 'origin', 'jvePilot-release', cwd=publisher)
+      git('push', 'origin', branch, cwd=publisher)
       check(updater)
-      self.assertEqual(updater.branches['jvePilot-release'], next_sha)
+      self.assertEqual(updater.branches[branch], next_sha)
       self.assertNotEqual(next_sha, sha)
       self.assertIn('update available', messages[-1])
 
@@ -73,7 +79,7 @@ class UpdateRefTest(unittest.TestCase):
       with self.assertRaises(subprocess.CalledProcessError):
         check(updater)
       self.assertFalse(updater._has_internet)
-      print('PASS: valid/same ref, new genuine release, absent ref + fetch failure, unreachable origin. No alerts/counters changed.')
+      print(f'PASS ({branch}): valid/same ref, new genuine release, absent ref + fetch failure, unreachable origin. No alerts/counters changed.')
 
 
 if __name__ == '__main__':
