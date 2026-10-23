@@ -13,6 +13,7 @@ test "$(git rev-parse HEAD^{tree})" = 2f99cbea39fd86565c4732fe7293750a8fde5715
 export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
 cd /work
 ln -s checkout/system system
+export BENPILOT_SOURCE_ROOT=/work/checkout
 python3 /recipe/test_update_ref.py
 cd /work/checkout
 # Select the actual larch64/QCOM2 compiler path, but never run device services.

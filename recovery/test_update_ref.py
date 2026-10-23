@@ -8,13 +8,15 @@ restricted to the disposable local repository. This does not test staging.
 import ast
 from collections import defaultdict
 from pathlib import Path
+import os
 import re
 import subprocess
 import tempfile
 from types import SimpleNamespace
 import unittest
 
-SOURCE = Path('/work/system/updated/updated.py')
+SOURCE_ROOT = Path(os.environ.get('BENPILOT_SOURCE_ROOT', Path(__file__).resolve().parents[1]))
+SOURCE = SOURCE_ROOT / 'system/updated/updated.py'
 
 
 class UpdateRefTest(unittest.TestCase):
