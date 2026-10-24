@@ -5,32 +5,36 @@ title: benPilot
 
 # benPilot
 
-A recovery fork of **[jvePilot by John Van Etten (j-vanetten)](https://github.com/j-vanetten/openpilot)**, based on [comma.ai openpilot](https://github.com/commaai/openpilot). Original attribution, licenses and source history are preserved.
+A recovery fork of **[jvePilot by John Van Etten (j-vanetten)](https://github.com/j-vanetten/openpilot)**, based on [comma.ai openpilot](https://github.com/commaai/openpilot). Attribution, licenses and source history are preserved. The application identifies as **benPilot 0.9.8(v3.18)-benPilot.1**.
 
-## UI-branded July candidate
+## Install on comma three or 3X
 
-The new application identifies itself as **benPilot 0.9.8(v3.18)-benPilot.1** in its app name, settings, welcome and alert labels. The Software screen credits jvePilot and its author. Existing settings keys and serialized schemas stay unchanged, as do the original July control logic, safety checks, models and firmware source.
+Enter this address at the device's **Custom Software** prompt:
 
-- [Review candidate 3, source, checksums and build limits](https://github.com/benbernard/benPilot/releases/tag/benpilot-ui-july-c3-candidate-3)
-- [Download the pinned installer bootstrap](https://github.com/benbernard/benPilot/releases/download/benpilot-ui-july-c3-candidate-3/install-benpilot-comma3-candidate)
-- [Inspect the exact branded payload](https://github.com/benbernard/benPilot/tree/2a8c27188bf10021736621bab4ce6975fc38edcc)
+```text
+benpilot.crabanddog.com
+```
 
-**Candidate only — do not load it before backup and compatibility review.** The bootstrap requires comma three (`tici`) with AGNOS 11.13 and refuses an existing installation. It is not a complete prebuilt driving image. Before device work, confirm the vehicle is parked, inventory installed source/OS/firmware, verify private installation/settings/calibration backup and rollback, and obtain the required deployment confirmation. Native build and device validation remain pending. Ben reviewed and accepted the inherited safety findings on October 23, 2026; the original test results remain recorded.
+One compiled installer recognizes **comma three (`tici`) and comma 3X (`tizi`) on AGNOS 11.13**. It downloads the exact reviewed application source and preserves the normal update channel. Other hardware and OS versions are refused. Before replacing a working installation, verify its private backup, compatibility and restoration plan. The bootstrap refuses an existing installation.
 
-Payload channel: `benPilot-release`, pinned at `2a8c27188bf10021736621bab4ce6975fc38edcc`. It retains the original July release behavior and normal update/failure checks. This page does not confirm successful installation or vehicle compatibility.
+- [Review the universal installer release and checksums](https://github.com/benbernard/benPilot/releases/tag/benpilot-july-universal-1)
+- [Current installation manifest](https://benpilot.crabanddog.com/manifest.json)
+- [Download the installer directly](https://github.com/benbernard/benPilot/releases/download/benpilot-july-universal-1/install-benpilot)
 
-## comma 3X candidate
+This is a source installer. A complete prebuilt driving image, native Qualcomm model generation and physical-device validation remain pending. No device installation was performed during publication.
 
-The separate 3X bootstrap downloads the same pinned benPilot application. It accepts only **comma 3X (`tizi`) with AGNOS 11.13**, and refuses an existing installation. The July source already contains 3X hardware support; driving, firmware, models and settings source are unchanged.
+## Get updates
 
-- [Review 3X candidate 1, checksums and build limits](https://github.com/benbernard/benPilot/releases/tag/benpilot-ui-july-c3x-candidate-1)
-- [Download the 3X installer bootstrap](https://github.com/benbernard/benPilot/releases/download/benpilot-ui-july-c3x-candidate-1/install-benpilot-comma3x-candidate)
-- [3X build and compatibility notes](https://github.com/benbernard/benPilot/blob/benPilot/recovery/installer/comma3x/README.md)
+After installation, use **Settings → Software → CHECK / DOWNLOAD → INSTALL**. Updates download while offroad. Both models use `benPilot-release` in the [benPilot repository](https://github.com/benbernard/benPilot). You keep the same installation URL when a new installer is published.
 
-Both installers are ARM64 source bootstraps. A complete prebuilt driving image and physical 3X validation remain pending. The backup, compatibility and installation requirements above apply to the 3X too. Comma-three candidate 3 remains available at its original link.
+Integration changes produce CI candidates. The release process requires successful checks on the exact source, verifies the built executable, and promotes the approved application channel using fast-forward changes. The short URL moves through a checked hosting release. [Maintainer release instructions and sunnypilot comparison](https://github.com/benbernard/benPilot/blob/benPilot/recovery/distribution/README.md).
 
-## Original recovery preserved
+The current application payload is `2a8c27188bf10021736621bab4ce6975fc38edcc`. The universal installer keeps that initial checkout pinned even as later approved updates advance the channel. Existing settings keys, serialized schemas, original July controls, safety behavior, models and firmware source remain unchanged. Ben reviewed and accepted the inherited safety findings; the original test results remain recorded.
 
-[Candidate 2](https://github.com/benbernard/benPilot/releases/tag/benpilot-july-c3-candidate-2) still downloads the original July jvePilot UI. The original source remains on [`jvePilot-release`](https://github.com/benbernard/benPilot/tree/jvePilot-release), commit `b47add65d32e232b939d4915cca0b5a9ddafc48d`, version 0.9.8(v3.18).
+## Preserved releases
 
-[Source repository and recovery evidence](https://github.com/benbernard/benPilot) · [Original-source recovery release](https://github.com/benbernard/benPilot/releases/tag/jve-july-2025-recovery-source-1)
+The earlier [comma-three candidate 3](https://github.com/benbernard/benPilot/releases/tag/benpilot-ui-july-c3-candidate-3) and [3X candidate 1](https://github.com/benbernard/benPilot/releases/tag/benpilot-ui-july-c3x-candidate-1) retain their original bytes. The universal URL above is the shared entry point going forward.
+
+[Candidate 2](https://github.com/benbernard/benPilot/releases/tag/benpilot-july-c3-candidate-2) retains the original July UI. Original source remains on [`jvePilot-release`](https://github.com/benbernard/benPilot/tree/jvePilot-release), commit `b47add65d32e232b939d4915cca0b5a9ddafc48d`, version `0.9.8(v3.18)`.
+
+[Source repository and build evidence](https://github.com/benbernard/benPilot) · [Original-source recovery release](https://github.com/benbernard/benPilot/releases/tag/jve-july-2025-recovery-source-1)
