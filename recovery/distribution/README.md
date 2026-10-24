@@ -1,6 +1,8 @@
 # Installation URL and update releases
 
-Enter **`benpilot.crabanddog.com`** at the device's **Custom Software** prompt. The same URL downloads a compiled ARM64 installer for **comma three (`tici`) and comma 3X (`tizi`) on AGNOS 11.13**. Other hardware, OS versions and existing installations are refused before installation writes. Read the release and backup requirements at [the website](https://benpilot.crabanddog.com/about).
+Enter **`benpilot.bernards.space`** at the device's **Custom Software** prompt. The same URL downloads a compiled ARM64 installer for **comma three (`tici`) and comma 3X (`tizi`) on AGNOS 11.13**. Other hardware, OS versions and existing installations are refused before installation writes. Read the release and backup requirements at [the website](https://benpilot.bernards.space/about).
+
+The previous `benpilot.crabanddog.com` and `comma.bernards.space` addresses remain aliases to the same release.
 
 The short URL returns an uncached redirect to an immutable GitHub release asset. `/release` is an alias, `/manifest.json` describes the currently published bootstrap and payload, and `/about` opens the human-readable website. Downloaded executables are never selected from arbitrary request parameters or unreviewed integration commits.
 
