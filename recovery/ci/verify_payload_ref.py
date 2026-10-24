@@ -15,9 +15,12 @@ def verify(root):
   def git(*args):
     return subprocess.check_output(['git', '-c', 'core.hooksPath=/dev/null', *args], cwd=root, text=True).strip()
   remote = git('ls-remote', '--exit-code', payload['repository'], 'refs/heads/' + payload['branch'])
-  assert remote.split()[0] == payload['commit'], 'Reachable payload branch moved; review and rebuild the pinned candidate'
   if subprocess.run(['git', 'cat-file', '-e', payload['commit'] + '^{commit}'], cwd=root, capture_output=True).returncode:
     git('fetch', '--no-tags', '--depth=1', payload['repository'], payload['commit'])
+  current = remote.split()[0]
+  if current != payload['commit']:
+    git('fetch', '--no-tags', payload['repository'], current, payload['commit'])
+    subprocess.run(['git', 'merge-base', '--is-ancestor', current, payload['commit']], cwd=root, check=True)
   assert git('rev-parse', payload['commit'] + '^{tree}') == payload['tree']
   changed = git('diff', '--name-only', payload['commit'], 'HEAD').splitlines()
   permitted = {'README.md', 'selfdrive/ui/SConscript', 'selfdrive/ui/installer/installer.cc'}

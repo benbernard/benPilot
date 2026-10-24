@@ -21,6 +21,8 @@ for value in (b'https://github.com/benbernard/benPilot.git',
               b'Installing benPilot...', b'Based on jvePilot by John Van Etten'):
   assert value in data, f'Missing expected installer identity: {value!r}'
 model_names = {'tici': 'comma three', 'tizi': 'comma 3X'}
-message = f'Requires {model_names[payload["required_model"]]} with AGNOS 11.13. No installation changes made.'
+models = payload.get('required_models') or [payload['required_model']]
+label = 'comma three or 3X' if models == ['tici', 'tizi'] else model_names[models[0]]
+message = f'Requires {label} with AGNOS 11.13. No installation changes made.'
 assert message.encode() in data, 'Installer has the wrong hardware preflight message'
 print(f'PASS: AArch64 ELF, pinned branded July payload and explicit jvePilot attribution; {len(data)} bytes; SHA256 {hashlib.sha256(data).hexdigest()}')

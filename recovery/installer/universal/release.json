@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "tag": "benpilot-july-universal-1",
+  "artifact": "install-benpilot",
+  "sha256": "d1bff57675fcd5d670525e6868cca7241a08d1a2701a3113485db8774bc5ab5e",
+  "size_bytes": 366888,
+  "installation_url": "https://benpilot.crabanddog.com"
+}
