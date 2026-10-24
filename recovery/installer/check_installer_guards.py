@@ -10,6 +10,8 @@ import subprocess
 import tempfile
 
 source_root = Path(os.environ.get('BENPILOT_SOURCE_ROOT', Path(__file__).resolve().parents[2]))
+payload = json.loads((source_root / 'recovery/installer/payload-ref.json').read_text())
+assert payload['required_model'] in ('tici', 'tizi')
 src = (source_root / 'selfdrive/ui/installer/installer.cc').read_text()
 method = src[src.index('void Installer::doInstall() {'):src.index('void Installer::freshClone() {')]
 prefix = r'''
@@ -44,20 +46,25 @@ struct Installer {
 suffix = r'''
 int main() {
   struct Scenario { const char* os; const char* model; bool exists; bool allow; };
-  const Scenario cases[] = {
-    {"12.8", "tici", false, false}, {"11.13", "tizi", false, false},
-    {"11.13", "tici", true, false}, {"11.13", "tici", false, true}
-  };
-  for (const auto& c: cases) {
+  int tested = 0;
+  for (const char* os : {"11.13", "12.8", ""}) {
+   for (const char* model : {"tici", "tizi", "mici", "unknown", ""}) {
+    for (bool exists : {false, true}) {
+    const Scenario c = {os, model, exists,
+      std::string(os)=="11.13" && std::string(model)=="@REQUIRED_MODEL@" && !exists};
     os_version=c.os; hardware_name=c.model; existing_install=c.exists;
     commands.clear(); clones=0;
     Installer installer; installer.doInstall();
     if (!c.allow) { assert(commands.empty()); assert(clones==0); assert(!installer.label.text.empty()); }
     else { assert(commands==std::vector<std::string>{"rm -rf /data/tmppilot"}); assert(clones==1); }
+    tested++;
+    }
+   }
   }
-  std::cout << "PASS: actual preflight refuses wrong OS, wrong model and existing installation; valid target only cleans staging and requests fresh clone. No commands executed.\n";
+  std::cout << "PASS: " << tested << " actual preflight cases for @REQUIRED_MODEL@: wrong/empty OS, other/unknown/empty hardware and existing installation refused without commands. Valid target only requests staging cleanup and fresh clone. No commands executed.\n";
 }
 '''
+suffix = suffix.replace('@REQUIRED_MODEL@', payload['required_model'])
 scratch = tempfile.TemporaryDirectory(prefix='benpilot-installer-guards-')
 out = Path(scratch.name) / 'guard-test.cpp'
 out.write_text(prefix+method+suffix)
@@ -66,7 +73,6 @@ subprocess.run(['c++','-std=c++17','-Wall','-Wextra','-Werror',str(out),'-o',str
 subprocess.run([str(executable)],check=True)
 clone = src[src.index('void Installer::cloneFinished('):src.index('int main(')]
 assert clone.index('!= EXPECTED_COMMIT') < clone.index('run("mv " TMP_INSTALL_PATH')
-payload = json.loads((source_root / 'recovery/installer/payload-ref.json').read_text())
 assert f'const std::string EXPECTED_COMMIT = "{payload["commit"]}"' in src
 assert f'release = "{payload["branch"]}"' in (source_root / 'selfdrive/ui/SConscript').read_text()
 assert 'https://github.com/benbernard/benPilot.git' in src

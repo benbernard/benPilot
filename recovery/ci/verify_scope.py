@@ -41,6 +41,7 @@ if has_installer:
   assert normalize_patch(actual) == normalize_patch(recorded), 'Recorded installer patch differs from checked-out installer source'
   source = (ROOT / INSTALLER_PATHS[1]).read_text()
   assert 'Based on jvePilot by John Van Etten' in source
+  subprocess.run([sys.executable, str(ROOT / 'recovery/installer/check_comma3x.py')], check=True)
 
 for path in (ROOT / 'recovery').rglob('*.py'):
   compile(path.read_bytes(), str(path), 'exec')
