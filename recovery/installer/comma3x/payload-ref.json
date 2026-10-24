@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/benbernard/benPilot.git",
+  "branch": "benPilot-release",
+  "commit": "2a8c27188bf10021736621bab4ce6975fc38edcc",
+  "tree": "b8b0db69ab097f35fbbf6cbef07bbf2e3aefcef6",
+  "originating_commit": "b47add65d32e232b939d4915cca0b5a9ddafc48d",
+  "version": "0.9.8(v3.18)-benPilot.1",
+  "required_model": "tizi",
+  "required_agnos": "11.13"
+}

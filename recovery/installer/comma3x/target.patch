@@ -1,0 +1,13 @@
+--- a/selfdrive/ui/installer/installer.cc
++++ b/selfdrive/ui/installer/installer.cc
+@@ -102,8 +102,8 @@
+ void Installer::doInstall() {
+   // Recovery preflight: refuse other hardware/OS rather than allowing an
+   // unreviewed OS transition. These checks precede any installation writes.
+-  if (util::strip(util::read_file("/VERSION")) != "11.13" || Hardware::get_name() != "tici") {
+-    val->setText(tr("Requires comma three with AGNOS 11.13. No installation changes made."));
++  if (util::strip(util::read_file("/VERSION")) != "11.13" || Hardware::get_name() != "tizi") {
++    val->setText(tr("Requires comma 3X with AGNOS 11.13. No installation changes made."));
+     return;
+   }
+   if (QDir(INSTALL_PATH).exists()) {

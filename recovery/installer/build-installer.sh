@@ -1,15 +1,16 @@
 #!/bin/bash
 set -euo pipefail
 exec > >(tee /out/build.log) 2>&1
-# Trust only the read-only checkout explicitly mounted by the build runner.
-# Its host UID differs from the root UID in the capability-restricted container.
-# Set this inside the disposable container so the upload-pack subprocess sees
-# the same single-path exception. No host Git configuration is mounted.
+case "${BENPILOT_INSTALLER_TARGET:-all}" in
+  all) targets=(comma3 comma3x) ;;
+  comma3) targets=(comma3) ;;
+  comma3x) targets=(comma3x) ;;
+  *) printf 'Unknown installer target\n' >&2; exit 1 ;;
+esac
+# This exception is limited to the disposable container's supplied repository.
 git config --global --add safe.directory /source.git
 git clone --no-local --no-checkout /source.git /work/checkout
 cd /work/checkout
-# A shallow Actions checkout can hold the fetched baseline only in FETCH_HEAD;
-# cloning its advertised refs does not transfer that otherwise-unreachable tip.
 git fetch --no-tags --depth=1 /source.git b47add65d32e232b939d4915cca0b5a9ddafc48d
 git -c core.hooksPath=/dev/null checkout --detach b47add65d32e232b939d4915cca0b5a9ddafc48d
 git apply --check /recipe/recovery-installer.patch
@@ -17,9 +18,21 @@ git apply /recipe/recovery-installer.patch
 touch /TICI .lfsconfig
 mkdir -p /data/scons_cache
 export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
-scons -j2 selfdrive/ui/installer/installers/installer_openpilot
-cp selfdrive/ui/installer/installers/installer_openpilot /out/install-benpilot-comma3-candidate
-readelf -h -l -d /out/install-benpilot-comma3-candidate > /out/elf-metadata.txt
-sha256sum /out/install-benpilot-comma3-candidate > /out/SHA256SUMS
-git diff --stat > /out/source-diff-stat.txt
-printf 'Installer candidate compiled only; not executed or device validated.\n'
+: > /out/SHA256SUMS
+for target in "${targets[@]}"; do
+  artifact="install-benpilot-$target-candidate"
+  payload_ref=/recipe/payload-ref.json
+  if [[ "$target" == comma3x ]]; then
+    git apply --check /recipe/comma3x/target.patch
+    git apply /recipe/comma3x/target.patch
+    payload_ref=/recipe/comma3x/payload-ref.json
+  fi
+  scons -j2 selfdrive/ui/installer/installers/installer_openpilot
+  cp selfdrive/ui/installer/installers/installer_openpilot "/out/$artifact"
+  python3 /recipe/verify_artifact.py "/out/$artifact" --payload-ref "$payload_ref"
+  readelf -h -l -d "/out/$artifact" > "/out/$target-elf-metadata.txt"
+  sha256sum "/out/$artifact" >> /out/SHA256SUMS
+  git diff --stat > "/out/$target-source-diff-stat.txt"
+  git diff --binary -- selfdrive/ui/SConscript selfdrive/ui/installer/installer.cc > "/out/$target-recovery-installer.patch"
+done
+printf 'Installer candidates compiled and inspected only; not executed or device validated.\n'

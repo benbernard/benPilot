@@ -4,6 +4,8 @@ benPilot is a recovery fork of jvePilot, originally authored by John Van Etten (
 
 Updated October 23, 2026. **Source recovery and partial target compilation completed. A complete validated device build is blocked. Nothing has been installed.**
 
+**Owner update, October 23:** Ben confirmed the missing upstream release ref as the cause of his updater error. He personally reviewed the inherited safety findings and approved them as nonissues given the existing protections. The original results below remain evidence; pending-review wording in this historical recovery record is superseded. Native build, compatibility, backup and installation work remain pending. A [separate comma 3X installer candidate](installer/comma3x/README.md) uses the same pinned branded application.
+
 ## Recovery source and reachable update channel
 
 The user-owned fork is [benbernard/jvepilot-recovery](https://github.com/benbernard/benPilot). Its [jvePilot-release branch](https://github.com/benbernard/benPilot/tree/jvePilot-release) points to original-author commit **b47add65d32e232b939d4915cca0b5a9ddafc48d**, tree **2f99cbea39fd86565c4732fe7293750a8fde5715**, July 20, 2025, version **0.9.8(v3.18)**. It was recovered independently from the [original author's repository](https://github.com/j-vanetten/openpilot/commit/b47add65d32e232b939d4915cca0b5a9ddafc48d), matching the mirror archive. The commit is not signature-verified. The license and original attribution are retained.
