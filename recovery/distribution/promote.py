@@ -64,7 +64,7 @@ def hosting(directory: Path, manifest: dict[str, object]) -> None:
   directory.joinpath('release.json').write_text(json.dumps(manifest, indent=2) + '\n')
   directory.joinpath('nginx.conf').write_text('''server {
     listen 8080;
-    server_name comma.bernards.space benpilot.crabanddog.com;
+    server_name benpilot.bernards.space comma.bernards.space benpilot.crabanddog.com;
     server_tokens off;
     add_header Cache-Control "no-store" always;
     add_header X-Content-Type-Options nosniff always;
@@ -127,7 +127,7 @@ def main() -> None:
       if existing.returncode == 0:
         raise ValueError('Release already exists; inspect it instead of replacing immutable assets')
       notes = scratch/'notes.md'
-      notes.write_text('# Universal comma three / 3X source installer\n\nEnter `comma.bernards.space` at Custom Software setup. Requires AGNOS 11.13 and no existing installation. Both models use the pinned `benPilot-release` payload. Initial checkout stays pinned as the update branch advances.\n\nCI: '+str(manifest['ci_run'])+'\n\nThe installer is built and verified; full native model generation and physical device validation remain pending. Existing single-model release assets are preserved. Ben reviewed and accepted the inherited safety findings.\n')
+      notes.write_text('# Universal comma three / 3X source installer\n\nEnter `benpilot.bernards.space` at Custom Software setup. Requires AGNOS 11.13 and no existing installation. Both models use the pinned `benPilot-release` payload. Initial checkout stays pinned as the update branch advances.\n\nCI: '+str(manifest['ci_run'])+'\n\nThe installer is built and verified; full native model generation and physical device validation remain pending. Existing single-model release assets are preserved. Ben reviewed and accepted the inherited safety findings.\n')
       command('gh','release','create',tag,'--repo',REPO,'--draft','--prerelease','--target',source,'--title','benPilot universal comma three / 3X installer','--notes-file',str(notes),*(str(path) for path in sorted(bundle.iterdir())))
       command('gh','release','download',tag,'--repo',REPO,'--pattern','install-benpilot','--dir',str(scratch/'verify'))
       verify_bytes(scratch/'verify/install-benpilot',spec)
