@@ -15,9 +15,19 @@ The new application identifies itself as **benPilot 0.9.8(v3.18)-benPilot.1** in
 - [Download the pinned installer bootstrap](https://github.com/benbernard/benPilot/releases/download/benpilot-ui-july-c3-candidate-3/install-benpilot-comma3-candidate)
 - [Inspect the exact branded payload](https://github.com/benbernard/benPilot/tree/2a8c27188bf10021736621bab4ce6975fc38edcc)
 
-**Candidate only — do not load it before backup and compatibility review.** The bootstrap requires comma three (`tici`) with AGNOS 11.13 and refuses an existing installation. It is not a complete prebuilt driving image. Before device work, confirm the vehicle is parked, inventory installed source/OS/firmware, verify private installation/settings/calibration backup and rollback, and obtain the required deployment confirmation. Device validation and inherited safety-test disagreements remain pending.
+**Candidate only — do not load it before backup and compatibility review.** The bootstrap requires comma three (`tici`) with AGNOS 11.13 and refuses an existing installation. It is not a complete prebuilt driving image. Before device work, confirm the vehicle is parked, inventory installed source/OS/firmware, verify private installation/settings/calibration backup and rollback, and obtain the required deployment confirmation. Native build and device validation remain pending. Ben reviewed and accepted the inherited safety findings on October 23, 2026; the original test results remain recorded.
 
 Payload channel: `benPilot-release`, pinned at `2a8c27188bf10021736621bab4ce6975fc38edcc`. It retains the original July release behavior and normal update/failure checks. This page does not confirm successful installation or vehicle compatibility.
+
+## comma 3X candidate
+
+The separate 3X bootstrap downloads the same pinned benPilot application. It accepts only **comma 3X (`tizi`) with AGNOS 11.13**, and refuses an existing installation. The July source already contains 3X hardware support; driving, firmware, models and settings source are unchanged.
+
+- [Review 3X candidate 1, checksums and build limits](https://github.com/benbernard/benPilot/releases/tag/benpilot-ui-july-c3x-candidate-1)
+- [Download the 3X installer bootstrap](https://github.com/benbernard/benPilot/releases/download/benpilot-ui-july-c3x-candidate-1/install-benpilot-comma3x-candidate)
+- [3X build and compatibility notes](https://github.com/benbernard/benPilot/blob/benPilot/recovery/installer/comma3x/README.md)
+
+Both installers are ARM64 source bootstraps. A complete prebuilt driving image and physical 3X validation remain pending. The backup, compatibility and installation requirements above apply to the 3X too. Comma-three candidate 3 remains available at its original link.
 
 ## Original recovery preserved
 
