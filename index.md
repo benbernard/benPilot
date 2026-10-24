@@ -12,13 +12,13 @@ A recovery fork of **[jvePilot by John Van Etten (j-vanetten)](https://github.co
 Enter this address at the device's **Custom Software** prompt:
 
 ```text
-benpilot.crabanddog.com
+comma.bernards.space
 ```
 
 One compiled installer recognizes **comma three (`tici`) and comma 3X (`tizi`) on AGNOS 11.13**. It downloads the exact reviewed application source and preserves the normal update channel. Other hardware and OS versions are refused. Before replacing a working installation, verify its private backup, compatibility and restoration plan. The bootstrap refuses an existing installation.
 
 - [Review the universal installer release and checksums](https://github.com/benbernard/benPilot/releases/tag/benpilot-july-universal-1)
-- [Current installation manifest](https://benpilot.crabanddog.com/manifest.json)
+- [Current installation manifest](https://comma.bernards.space/manifest.json)
 - [Download the installer directly](https://github.com/benbernard/benPilot/releases/download/benpilot-july-universal-1/install-benpilot)
 
 This is a source installer. A complete prebuilt driving image, native Qualcomm model generation and physical-device validation remain pending. No device installation was performed during publication.
