@@ -1,0 +1,24 @@
+--- a/selfdrive/ui/installer/installer.cc
++++ b/selfdrive/ui/installer/installer.cc
+@@ -102,8 +102,8 @@
+ void Installer::doInstall() {
+   // Recovery preflight: refuse other hardware/OS rather than allowing an
+   // unreviewed OS transition. These checks precede any installation writes.
+-  if (util::strip(util::read_file("/VERSION")) != "11.13" || Hardware::get_name() != "tici") {
+-    val->setText(tr("Requires comma three with AGNOS 11.13. No installation changes made."));
++  if (util::strip(util::read_file("/VERSION")) != "11.13" || (Hardware::get_name() != "tici" && Hardware::get_name() != "tizi")) {
++    val->setText(tr("Requires comma three or 3X with AGNOS 11.13. No installation changes made."));
+     return;
+   }
+   if (QDir(INSTALL_PATH).exists()) {
+@@ -180,8 +180,8 @@
+   // ensure correct branch is checked out
+   int err = chdir(TMP_INSTALL_PATH);
+   assert(err == 0);
+-  run(("git checkout " + BRANCH_STR).c_str());
+-  run(("git reset --hard origin/" + BRANCH_STR).c_str());
++  run(("git fetch --depth=1 origin " + EXPECTED_COMMIT).c_str());
++  run(("git checkout -B " + BRANCH_STR + " " + EXPECTED_COMMIT).c_str());
+   run("git submodule update --init");
+ 
+   if (util::strip(util::check_output("git rev-parse HEAD")) != EXPECTED_COMMIT) {

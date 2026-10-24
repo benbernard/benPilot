@@ -2,9 +2,10 @@
 set -euo pipefail
 exec > >(tee /out/build.log) 2>&1
 case "${BENPILOT_INSTALLER_TARGET:-all}" in
-  all) targets=(comma3 comma3x) ;;
+  all) targets=(comma3 comma3x universal) ;;
   comma3) targets=(comma3) ;;
   comma3x) targets=(comma3x) ;;
+  universal) targets=(universal) ;;
   *) printf 'Unknown installer target\n' >&2; exit 1 ;;
 esac
 # This exception is limited to the disposable container's supplied repository.
@@ -15,17 +16,25 @@ git fetch --no-tags --depth=1 /source.git b47add65d32e232b939d4915cca0b5a9ddafc4
 git -c core.hooksPath=/dev/null checkout --detach b47add65d32e232b939d4915cca0b5a9ddafc48d
 git apply --check /recipe/recovery-installer.patch
 git apply /recipe/recovery-installer.patch
+cp selfdrive/ui/installer/installer.cc /work/installer-comma3.cc
 touch /TICI .lfsconfig
 mkdir -p /data/scons_cache
 export PYTHONPATH=/work/checkout:/work/checkout/tinygrad_repo
 : > /out/SHA256SUMS
 for target in "${targets[@]}"; do
   artifact="install-benpilot-$target-candidate"
+  cp /work/installer-comma3.cc selfdrive/ui/installer/installer.cc
   payload_ref=/recipe/payload-ref.json
   if [[ "$target" == comma3x ]]; then
     git apply --check /recipe/comma3x/target.patch
     git apply /recipe/comma3x/target.patch
     payload_ref=/recipe/comma3x/payload-ref.json
+  fi
+  if [[ "$target" == universal ]]; then
+    git apply --check /recipe/universal/target.patch
+    git apply /recipe/universal/target.patch
+    payload_ref=/recipe/universal/payload-ref.json
+    artifact=install-benpilot
   fi
   scons -j2 selfdrive/ui/installer/installers/installer_openpilot
   cp selfdrive/ui/installer/installers/installer_openpilot "/out/$artifact"

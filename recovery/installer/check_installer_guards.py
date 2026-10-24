@@ -11,7 +11,8 @@ import tempfile
 
 source_root = Path(os.environ.get('BENPILOT_SOURCE_ROOT', Path(__file__).resolve().parents[2]))
 payload = json.loads((source_root / 'recovery/installer/payload-ref.json').read_text())
-assert payload['required_model'] in ('tici', 'tizi')
+models = payload.get('required_models') or [payload['required_model']]
+assert tuple(models) in (('tici',), ('tizi',), ('tici', 'tizi'))
 src = (source_root / 'selfdrive/ui/installer/installer.cc').read_text()
 method = src[src.index('void Installer::doInstall() {'):src.index('void Installer::freshClone() {')]
 prefix = r'''
@@ -51,7 +52,7 @@ int main() {
    for (const char* model : {"tici", "tizi", "mici", "unknown", ""}) {
     for (bool exists : {false, true}) {
     const Scenario c = {os, model, exists,
-      std::string(os)=="11.13" && std::string(model)=="@REQUIRED_MODEL@" && !exists};
+      std::string(os)=="11.13" && (@MODEL_PREDICATE@) && !exists};
     os_version=c.os; hardware_name=c.model; existing_install=c.exists;
     commands.clear(); clones=0;
     Installer installer; installer.doInstall();
@@ -64,7 +65,8 @@ int main() {
   std::cout << "PASS: " << tested << " actual preflight cases for @REQUIRED_MODEL@: wrong/empty OS, other/unknown/empty hardware and existing installation refused without commands. Valid target only requests staging cleanup and fresh clone. No commands executed.\n";
 }
 '''
-suffix = suffix.replace('@REQUIRED_MODEL@', payload['required_model'])
+suffix = suffix.replace('@REQUIRED_MODEL@', '/'.join(models))
+suffix = suffix.replace('@MODEL_PREDICATE@', ' || '.join(f'std::string(model)=="{model}"' for model in models))
 scratch = tempfile.TemporaryDirectory(prefix='benpilot-installer-guards-')
 out = Path(scratch.name) / 'guard-test.cpp'
 out.write_text(prefix+method+suffix)
